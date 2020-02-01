@@ -5,7 +5,7 @@
  * Revision history: 
  */
 
-#ifndef     MOTOR_H
+#ifndef MOTOR_H
 #define	MOTOR_H
 
 
@@ -17,9 +17,9 @@ extern "C" {
     
     void stopMotor(); 
     
+    void spinMotor(int rate, char direction[]);
+    
     void oscillateMotor(int rate); 
-        
-    void spinMotor(int rate);
     
     void rinse (int cycle);
     
@@ -39,7 +39,7 @@ extern "C" {
 
 #ifdef	__cplusplus
 }
-#endif /* __cplusplus */
+#endif
 
-#endif	/* XC_HEADER_TEMPLATE_H */
+#endif	/*MOTOR_H*/
 

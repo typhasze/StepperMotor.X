@@ -1,5 +1,5 @@
 
-# 1 "Motor.c"
+# 1 "Test.c"
 
 # 26 "D:\Personal Items\XC8 C\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
@@ -8098,6 +8098,55 @@ extern __nonreentrant void _delaywdt(unsigned long);
 #pragma intrinsic(_delay3)
 extern __nonreentrant void _delay3(unsigned char);
 
+# 4 "amt.h"
+void MSdelay(int x);
+void delay_us(int x);
+
+void SPI1init(void);
+void SPI1out(char Code);
+
+void LCD8init(void);
+
+void LCD8send(char c, char mode);
+void SPI_LCD4init(void);
+void SPI_LCD4send(char c, char mode);
+
+void KeyPadinit();
+unsigned char Read_KeyPad();
+
+void T2intr(void);
+void T4intr(void);
+
+void uart_init(void);
+void uart_send_char (unsigned char ucChar);
+void clr_screen(void);
+void cursor_home(void);
+
+# 16 "Motor.h"
+void startMotor();
+
+void stopMotor();
+
+void spinMotor(int rate, char direction[]);
+
+void oscillateMotor(int rate);
+
+void rinse (int cycle);
+
+void wash (int cycle);
+
+void dry (int cycle);
+
+void normalWashMode ();
+
+void quickWashMode();
+
+void cottonWashMode();
+
+void allergyWashMode();
+
+void turboDry(int cycle);
+
 # 4 "D:\Personal Items\XC8 C\include\__size_t.h"
 typedef unsigned size_t;
 
@@ -8161,163 +8210,44 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
 
-# 16 "Motor.h"
-void startMotor();
+# 14 "D:\Personal Items\XC8 C\include\string.h"
+extern void * memcpy(void *, const void *, size_t);
+extern void * memmove(void *, const void *, size_t);
+extern void * memset(void *, int, size_t);
 
-void stopMotor();
-
-void spinMotor(int rate, char direction[]);
-
-void oscillateMotor(int rate);
-
-void rinse (int cycle);
-
-void wash (int cycle);
-
-void dry (int cycle);
-
-void normalWashMode ();
-
-void quickWashMode();
-
-void cottonWashMode();
-
-void allergyWashMode();
-
-void turboDry(int cycle);
-
-# 4 "amt.h"
-void MSdelay(int x);
-void delay_us(int x);
-
-void SPI1init(void);
-void SPI1out(char Code);
-
-void LCD8init(void);
-
-void LCD8send(char c, char mode);
-void SPI_LCD4init(void);
-void SPI_LCD4send(char c, char mode);
-
-void KeyPadinit();
-unsigned char Read_KeyPad();
-
-void T2intr(void);
-void T4intr(void);
-
-void uart_init(void);
-void uart_send_char (unsigned char ucChar);
-void clr_screen(void);
-void cursor_home(void);
+# 34
+extern char * strcat(char *, const char *);
+extern char * strcpy(char *, const char *);
+extern char * strncat(char *, const char *, size_t);
+extern char * strncpy(char *, const char *, size_t);
+extern char * strdup(const char *);
+extern char * strtok(char *, const char *);
 
 
-# 6 "Motor.c"
-#pragma config XINST = OFF
-#pragma config FOSC = HS
-#pragma config WDT = OFF
+extern int memcmp(const void *, const void *, size_t);
+extern int strcmp(const char *, const char *);
+extern int stricmp(const char *, const char *);
+extern int strncmp(const char *, const char *, size_t);
+extern int strnicmp(const char *, const char *, size_t);
+extern void * memchr(const void *, int, size_t);
+extern size_t strcspn(const char *, const char *);
+extern char * strpbrk(const char *, const char *);
+extern size_t strspn(const char *, const char *);
+extern char * strstr(const char *, const char *);
+extern char * stristr(const char *, const char *);
+extern char * strerror(int);
+extern size_t strlen(const char *);
+extern char * strchr(const char *, int);
+extern char * strichr(const char *, int);
+extern char * strrchr(const char *, int);
+extern char * strrichr(const char *, int);
 
-# 22
-void startMotor() {
-TRISD = 0x00;
-}
-
-void stopMotor() {
-PORTD = 0x00;
-TRISD = 0xFF;
-}
-
-void spinMotor(int rate, char direction[]) {
-for (int i = 0; i < 250; i++) {
-if (direction == "anti_clockwise"){
-PORTD = 0b00000011;
-delay_us(rate);
-PORTD = 0b00000110;
-delay_us(rate);
-PORTD = 0b00001100;
-delay_us(rate);
-PORTD = 0b00001001;
-delay_us(rate);
-PORTD = 0b00000011;
-delay_us(rate);
-}
-if (direction == "clockwise"){
-PORTD = 0b00001001;
-delay_us(rate);
-PORTD = 0b00001100;
-delay_us(rate);
-PORTD = 0b00000110;
-delay_us(rate);
-PORTD = 0b00000011;
-delay_us(rate);
-PORTD = 0b00001001;
-delay_us(rate);
-}
-}
-}
-
-void oscillateMotor (int rate) {
-
-
-PORTD = 0b00000011;
-delay_us(rate);
-PORTD = 0b00000110;
-delay_us(rate);
-PORTD = 0b00001100;
-delay_us(rate);
-PORTD = 0b00001001;
-delay_us(rate);
-PORTD = 0b00000011;
-delay_us(rate);
-
-
-PORTD = 0b00001001;
-delay_us(rate);
-PORTD = 0b00001100;
-delay_us(rate);
-PORTD = 0b00000110;
-delay_us(rate);
-PORTD = 0b00000011;
-delay_us(rate);
-PORTD = 0b00001001;
-delay_us(rate);
-
-}
-
-void rinse (int cycle) {
-for (int i = 0; i < cycle; i++) {
-oscillateMotor(50);
-}
-}
-
-void wash (int cycle) {
-for (int i = 0; i < cycle; i++) {
+# 8 "Test.c"
+void main(void) {
+startMotor();
 spinMotor(5, "clockwise");
+oscillateMotor(5);
+rinse(5);
+wash(5);
+dry(10);
 }
-}
-
-void dry (int cycle) {
-for (int i = 0; i < cycle; i++) {
-spinMotor(10, "anti_clockwise");
-}
-}
-
-void normalWashMode() {
-
-}
-
-void quickWashMode () {
-
-}
-
-void cottonWashMode () {
-
-}
-
-void allergyWashMode () {
-
-}
-
-void turboDry(int cycle) {
-
-}
-

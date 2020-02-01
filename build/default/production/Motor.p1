@@ -1,39 +1,15 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"7825 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic18f97j60.h
+"7825 D:\Personal Items\XC8 C\include\pic18f97j60.h
 [v _TRISD `Vuc ~T0 @X0 0 e@3989 ]
 "4789
 [v _PORTD `Vuc ~T0 @X0 0 e@3971 ]
-[p mainexit ]
-"4795
-[s S231 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S231 . RD0 RD1 RD2 RD3 RD4 RD5 RD6 RD7 ]
-"4805
-[s S232 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S232 . PSP0 PSP1 PSP2 PSP3 PSP4 PSP5 PSP6 PSP7 ]
-"4815
-[s S233 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S233 . AD0 AD1 AD2 AD3 AD4 AD5 AD6 AD7 ]
-"4825
-[s S234 :5 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S234 . . SDA2 SCL2 SS2 ]
-"4831
-[s S235 :7 `uc 1 :1 `uc 1 ]
-[n S235 . . NOT_SS2 ]
-"4835
-[s S236 :4 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
-[n S236 . . SDO2 SDI2 SCK2 nSS2 ]
-"4794
-[u S230 `S231 1 `S232 1 `S233 1 `S234 1 `S235 1 `S236 1 ]
-[n S230 . . . . . . . ]
-"4843
-[v _PORTDbits `VS230 ~T0 @X0 0 e@3971 ]
 "5 amt.h
 [v _delay_us `(v ~T0 @X0 0 ef1`i ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f97j60.h: 49: extern volatile unsigned char MAADR5 @ 0xE80;
-"51 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic18f97j60.h
+"51 D:\Personal Items\XC8 C\include\pic18f97j60.h
 [; ;pic18f97j60.h: 51: asm("MAADR5 equ 0E80h");
 [; <" MAADR5 equ 0E80h ;# ">
 [; ;pic18f97j60.h: 55: extern volatile unsigned char MAADR6 @ 0xE81;
@@ -6324,8 +6300,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdio.h: 195: extern int printf(const char *, ...);
 [; ;Motor.h: 16: void startMotor();
 [; ;Motor.h: 18: void stopMotor();
-[; ;Motor.h: 20: void oscillateMotor(int rate);
-[; ;Motor.h: 22: void spinMotor(int rate);
+[; ;Motor.h: 20: void spinMotor(int rate, char direction[]);
+[; ;Motor.h: 22: void oscillateMotor(int rate);
 [; ;Motor.h: 24: void rinse (int cycle);
 [; ;Motor.h: 26: void wash (int cycle);
 [; ;Motor.h: 28: void dry (int cycle);
@@ -6356,110 +6332,360 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p x FOSC=HS ]
 "8
 [p x WDT=OFF ]
-"13
+"22
 [v _startMotor `(v ~T0 @X0 1 ef ]
 {
-[; ;Motor.c: 13: void startMotor() {
+[; ;Motor.c: 22: void startMotor() {
 [e :U _startMotor ]
 [f ]
-[; ;Motor.c: 14: TRISD = 0x00;
-"14
+[; ;Motor.c: 23: TRISD = 0x00;
+"23
 [e = _TRISD -> -> 0 `i `uc ]
-[; ;Motor.c: 15: }
-"15
-[e :UE 773 ]
-}
-"17
-[v _stopMotor `(v ~T0 @X0 1 ef ]
-{
-[; ;Motor.c: 17: void stopMotor() {
-[e :U _stopMotor ]
-[f ]
-[; ;Motor.c: 18: PORTD = 0x00;
-"18
-[e = _PORTD -> -> 0 `i `uc ]
-[; ;Motor.c: 19: TRISD = 0xFF;
-"19
-[e = _TRISD -> -> 255 `i `uc ]
-[; ;Motor.c: 20: }
-"20
-[e :UE 774 ]
-}
-"22
-[v _spinMotor `(v ~T0 @X0 1 ef1`i ]
-{
-[; ;Motor.c: 22: void spinMotor(int rate) {
-[e :U _spinMotor ]
-[v _rate `i ~T0 @X0 1 r1 ]
-[f ]
 [; ;Motor.c: 24: }
 "24
+[e :UE 773 ]
+}
+"26
+[v _stopMotor `(v ~T0 @X0 1 ef ]
+{
+[; ;Motor.c: 26: void stopMotor() {
+[e :U _stopMotor ]
+[f ]
+[; ;Motor.c: 27: PORTD = 0x00;
+"27
+[e = _PORTD -> -> 0 `i `uc ]
+[; ;Motor.c: 28: TRISD = 0xFF;
+"28
+[e = _TRISD -> -> 255 `i `uc ]
+[; ;Motor.c: 29: }
+"29
+[e :UE 774 ]
+}
+"31
+[v _spinMotor `(v ~T0 @X0 1 ef2`i`*uc ]
+{
+[; ;Motor.c: 31: void spinMotor(int rate, char direction[]) {
+[e :U _spinMotor ]
+[v _rate `i ~T0 @X0 1 r1 ]
+[v _direction `*uc ~T0 @X0 1 r2 ]
+[f ]
+[; ;Motor.c: 32: for (int i = 0; i < 250; i++) {
+"32
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 250 `i 776  ]
+[e $U 777  ]
+[e :U 776 ]
+{
+[; ;Motor.c: 33: if (direction == "anti_clockwise"){
+"33
+[e $ ! == _direction -> :s 1C `*uc 779  ]
+{
+[; ;Motor.c: 34: PORTD = 0b00000011;
+"34
+[e = _PORTD -> -> 3 `i `uc ]
+[; ;Motor.c: 35: delay_us(rate);
+"35
+[e ( _delay_us (1 _rate ]
+[; ;Motor.c: 36: PORTD = 0b00000110;
+"36
+[e = _PORTD -> -> 6 `i `uc ]
+[; ;Motor.c: 37: delay_us(rate);
+"37
+[e ( _delay_us (1 _rate ]
+[; ;Motor.c: 38: PORTD = 0b00001100;
+"38
+[e = _PORTD -> -> 12 `i `uc ]
+[; ;Motor.c: 39: delay_us(rate);
+"39
+[e ( _delay_us (1 _rate ]
+[; ;Motor.c: 40: PORTD = 0b00001001;
+"40
+[e = _PORTD -> -> 9 `i `uc ]
+[; ;Motor.c: 41: delay_us(rate);
+"41
+[e ( _delay_us (1 _rate ]
+[; ;Motor.c: 42: PORTD = 0b00000011;
+"42
+[e = _PORTD -> -> 3 `i `uc ]
+[; ;Motor.c: 43: delay_us(rate);
+"43
+[e ( _delay_us (1 _rate ]
+"44
+}
+[e :U 779 ]
+[; ;Motor.c: 44: }
+[; ;Motor.c: 45: if (direction == "clockwise"){
+"45
+[e $ ! == _direction -> :s 2C `*uc 780  ]
+{
+[; ;Motor.c: 46: PORTD = 0b00001001;
+"46
+[e = _PORTD -> -> 9 `i `uc ]
+[; ;Motor.c: 47: delay_us(rate);
+"47
+[e ( _delay_us (1 _rate ]
+[; ;Motor.c: 48: PORTD = 0b00001100;
+"48
+[e = _PORTD -> -> 12 `i `uc ]
+[; ;Motor.c: 49: delay_us(rate);
+"49
+[e ( _delay_us (1 _rate ]
+[; ;Motor.c: 50: PORTD = 0b00000110;
+"50
+[e = _PORTD -> -> 6 `i `uc ]
+[; ;Motor.c: 51: delay_us(rate);
+"51
+[e ( _delay_us (1 _rate ]
+[; ;Motor.c: 52: PORTD = 0b00000011;
+"52
+[e = _PORTD -> -> 3 `i `uc ]
+[; ;Motor.c: 53: delay_us(rate);
+"53
+[e ( _delay_us (1 _rate ]
+[; ;Motor.c: 54: PORTD = 0b00001001;
+"54
+[e = _PORTD -> -> 9 `i `uc ]
+[; ;Motor.c: 55: delay_us(rate);
+"55
+[e ( _delay_us (1 _rate ]
+"56
+}
+[e :U 780 ]
+"57
+}
+"32
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 250 `i 776  ]
+[e :U 777 ]
+"57
+}
+[; ;Motor.c: 56: }
+[; ;Motor.c: 57: }
+[; ;Motor.c: 58: }
+"58
 [e :UE 775 ]
 }
-"25
-[v _main `(v ~T0 @X0 1 ef ]
+"60
+[v _oscillateMotor `(v ~T0 @X0 1 ef1`i ]
 {
-[; ;Motor.c: 25: void main(void) {
-[e :U _main ]
+[; ;Motor.c: 60: void oscillateMotor (int rate) {
+[e :U _oscillateMotor ]
+[v _rate `i ~T0 @X0 1 r1 ]
 [f ]
-[; ;Motor.c: 27: TRISD = 0;
-"27
-[e = _TRISD -> -> 0 `i `uc ]
-[; ;Motor.c: 29: while (1) {
-"29
-[e :U 778 ]
+[; ;Motor.c: 63: PORTD = 0b00000011;
+"63
+[e = _PORTD -> -> 3 `i `uc ]
+[; ;Motor.c: 64: delay_us(rate);
+"64
+[e ( _delay_us (1 _rate ]
+[; ;Motor.c: 65: PORTD = 0b00000110;
+"65
+[e = _PORTD -> -> 6 `i `uc ]
+[; ;Motor.c: 66: delay_us(rate);
+"66
+[e ( _delay_us (1 _rate ]
+[; ;Motor.c: 67: PORTD = 0b00001100;
+"67
+[e = _PORTD -> -> 12 `i `uc ]
+[; ;Motor.c: 68: delay_us(rate);
+"68
+[e ( _delay_us (1 _rate ]
+[; ;Motor.c: 69: PORTD = 0b00001001;
+"69
+[e = _PORTD -> -> 9 `i `uc ]
+[; ;Motor.c: 70: delay_us(rate);
+"70
+[e ( _delay_us (1 _rate ]
+[; ;Motor.c: 71: PORTD = 0b00000011;
+"71
+[e = _PORTD -> -> 3 `i `uc ]
+[; ;Motor.c: 72: delay_us(rate);
+"72
+[e ( _delay_us (1 _rate ]
+[; ;Motor.c: 75: PORTD = 0b00001001;
+"75
+[e = _PORTD -> -> 9 `i `uc ]
+[; ;Motor.c: 76: delay_us(rate);
+"76
+[e ( _delay_us (1 _rate ]
+[; ;Motor.c: 77: PORTD = 0b00001100;
+"77
+[e = _PORTD -> -> 12 `i `uc ]
+[; ;Motor.c: 78: delay_us(rate);
+"78
+[e ( _delay_us (1 _rate ]
+[; ;Motor.c: 79: PORTD = 0b00000110;
+"79
+[e = _PORTD -> -> 6 `i `uc ]
+[; ;Motor.c: 80: delay_us(rate);
+"80
+[e ( _delay_us (1 _rate ]
+[; ;Motor.c: 81: PORTD = 0b00000011;
+"81
+[e = _PORTD -> -> 3 `i `uc ]
+[; ;Motor.c: 82: delay_us(rate);
+"82
+[e ( _delay_us (1 _rate ]
+[; ;Motor.c: 83: PORTD = 0b00001001;
+"83
+[e = _PORTD -> -> 9 `i `uc ]
+[; ;Motor.c: 84: delay_us(rate);
+"84
+[e ( _delay_us (1 _rate ]
+[; ;Motor.c: 86: }
+"86
+[e :UE 781 ]
+}
+"88
+[v _rinse `(v ~T0 @X0 1 ef1`i ]
 {
-[; ;Motor.c: 31: for (int j = 0; j < 100; j++) {
-"31
+[; ;Motor.c: 88: void rinse (int cycle) {
+[e :U _rinse ]
+[v _cycle `i ~T0 @X0 1 r1 ]
+[f ]
+[; ;Motor.c: 89: for (int i = 0; i < cycle; i++) {
+"89
 {
-[v _j `i ~T0 @X0 1 a ]
-[e = _j -> 0 `i ]
-[e $ < _j -> 100 `i 780  ]
-[e $U 781  ]
-[e :U 780 ]
-{
-[; ;Motor.c: 32: PORTDbits.RD0 = 1;
-"32
-[e = . . _PORTDbits 0 0 -> -> 1 `i `uc ]
-[; ;Motor.c: 33: for (; ;) {
-"33
-{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $U 786  ]
 [e :U 783 ]
 {
-[; ;Motor.c: 34: delay_us(50);
-"34
-[e ( _delay_us (1 -> 50 `i ]
-[; ;Motor.c: 35: PORTD = PORTD << 1;
-"35
-[e = _PORTD -> << -> _PORTD `i -> 1 `i `uc ]
-[; ;Motor.c: 36: if (PORTD == 0x08) PORTDbits.RD0 = 1;
-"36
-[e $ ! == -> _PORTD `i -> 8 `i 786  ]
-[e = . . _PORTDbits 0 0 -> -> 1 `i `uc ]
+[; ;Motor.c: 90: oscillateMotor(50);
+"90
+[e ( _oscillateMotor (1 -> 50 `i ]
+"91
+}
+"89
+[e ++ _i -> 1 `i ]
 [e :U 786 ]
-"37
-}
-[; ;Motor.c: 37: }
-[e $U 783  ]
+[e $ < _i _cycle 783  ]
 [e :U 784 ]
+"91
 }
-"38
+[; ;Motor.c: 91: }
+[; ;Motor.c: 92: }
+"92
+[e :UE 782 ]
 }
-"31
-[e ++ _j -> 1 `i ]
-[e $ < _j -> 100 `i 780  ]
-[e :U 781 ]
-"38
+"94
+[v _wash `(v ~T0 @X0 1 ef1`i ]
+{
+[; ;Motor.c: 94: void wash (int cycle) {
+[e :U _wash ]
+[v _cycle `i ~T0 @X0 1 r1 ]
+[f ]
+[; ;Motor.c: 95: for (int i = 0; i < cycle; i++) {
+"95
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $U 791  ]
+[e :U 788 ]
+{
+[; ;Motor.c: 96: spinMotor(5, "clockwise");
+"96
+[e ( _spinMotor (2 , -> 5 `i -> :s 3C `*uc ]
+"97
 }
-"46
+"95
+[e ++ _i -> 1 `i ]
+[e :U 791 ]
+[e $ < _i _cycle 788  ]
+[e :U 789 ]
+"97
 }
-[e :U 777 ]
-"29
-[e $U 778  ]
-[e :U 779 ]
-[; ;Motor.c: 38: }
-[; ;Motor.c: 46: }
-[; ;Motor.c: 47: }
-"47
-[e :UE 776 ]
+[; ;Motor.c: 97: }
+[; ;Motor.c: 98: }
+"98
+[e :UE 787 ]
 }
+"100
+[v _dry `(v ~T0 @X0 1 ef1`i ]
+{
+[; ;Motor.c: 100: void dry (int cycle) {
+[e :U _dry ]
+[v _cycle `i ~T0 @X0 1 r1 ]
+[f ]
+[; ;Motor.c: 101: for (int i = 0; i < cycle; i++) {
+"101
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $U 796  ]
+[e :U 793 ]
+{
+[; ;Motor.c: 102: spinMotor(10, "anti_clockwise");
+"102
+[e ( _spinMotor (2 , -> 10 `i -> :s 4C `*uc ]
+"103
+}
+"101
+[e ++ _i -> 1 `i ]
+[e :U 796 ]
+[e $ < _i _cycle 793  ]
+[e :U 794 ]
+"103
+}
+[; ;Motor.c: 103: }
+[; ;Motor.c: 104: }
+"104
+[e :UE 792 ]
+}
+"106
+[v _normalWashMode `(v ~T0 @X0 1 ef ]
+{
+[; ;Motor.c: 106: void normalWashMode() {
+[e :U _normalWashMode ]
+[f ]
+[; ;Motor.c: 108: }
+"108
+[e :UE 797 ]
+}
+"110
+[v _quickWashMode `(v ~T0 @X0 1 ef ]
+{
+[; ;Motor.c: 110: void quickWashMode () {
+[e :U _quickWashMode ]
+[f ]
+[; ;Motor.c: 112: }
+"112
+[e :UE 798 ]
+}
+"114
+[v _cottonWashMode `(v ~T0 @X0 1 ef ]
+{
+[; ;Motor.c: 114: void cottonWashMode () {
+[e :U _cottonWashMode ]
+[f ]
+[; ;Motor.c: 116: }
+"116
+[e :UE 799 ]
+}
+"118
+[v _allergyWashMode `(v ~T0 @X0 1 ef ]
+{
+[; ;Motor.c: 118: void allergyWashMode () {
+[e :U _allergyWashMode ]
+[f ]
+[; ;Motor.c: 120: }
+"120
+[e :UE 800 ]
+}
+"122
+[v _turboDry `(v ~T0 @X0 1 ef1`i ]
+{
+[; ;Motor.c: 122: void turboDry(int cycle) {
+[e :U _turboDry ]
+[v _cycle `i ~T0 @X0 1 r1 ]
+[f ]
+[; ;Motor.c: 124: }
+"124
+[e :UE 801 ]
+}
+[a 1C 97 110 116 105 95 99 108 111 99 107 119 105 115 101 0 ]
+[a 4C 97 110 116 105 95 99 108 111 99 107 119 105 115 101 0 ]
+[a 2C 99 108 111 99 107 119 105 115 101 0 ]
+[a 3C 99 108 111 99 107 119 105 115 101 0 ]
