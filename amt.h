@@ -1,7 +1,7 @@
 #ifndef _AMT_HEADER_FILE
 #define _AMT_HEADER_FILE
 
-void MSdelay(int x);
+void delay_ms(int x);
 void delay_us(int x);
 //SPI routines
 void SPI1init(void);

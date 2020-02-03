@@ -2,10 +2,10 @@ Microchip MPLAB XC8 Compiler V1.37 ()
 
 Linker command line:
 
--W-3 --edf=D:\Personal Items\XC8 C\dat\en_msgs.txt -cs \
+-W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v1.37\dat\en_msgs.txt -cs \
   -h+dist/default/production\StepperMotor.X.production.sym \
   --cmf=dist/default/production\StepperMotor.X.production.cmf -z -Q18F97J60 \
-  -oC:\Users\typha\AppData\Local\Temp\s4rk.2 \
+  -oC:\Users\typha\AppData\Local\Temp\savo.2 \
   -Mdist/default/production/StepperMotor.X.production.map -E1 -ver=XC8 \
   -ASTACK=060h-0e7fh -pstack=STACK -ACODE=00h-01FFF7h -ACONST=00h-01FFF7h \
   -ASMALLCONST=01000h-010FFhx495,01FF00h-01FFF7h \
@@ -26,7 +26,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\typha\AppData\Local\Temp\s4rk.obj \
+  C:\Users\typha\AppData\Local\Temp\savo.obj \
   dist/default/production\StepperMotor.X.production.obj 
 
 Object code version is 3.11
@@ -39,36 +39,30 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\typha\AppData\Local\Temp\s4rk.obj
+C:\Users\typha\AppData\Local\Temp\savo.obj
                 end_init                              0        0        4        0       0
                 config                            1FFF8    1FFF8        6    1FFF8       0
 dist/default/production\StepperMotor.X.production.obj
                 smallconst                         1000     1000       12      800       0
-                text7                              127C     127C       2A      809       0
-                text6                              1012     1012       DC      809       0
-                text5                              1214     1214       38      809       0
-                text4                              10EE     10EE       A2      809       0
-                text3                              124C     124C       30      809       0
-                text2                              12B4     12B4        6      809       0
-                text1                              11DC     11DC       38      809       0
-                text0                              1190     1190       4C      809       0
-                cstackCOMRAM                          1        1       10        1       1
-                cinit                              12A6     12A6        E      809       0
+                text4                              10E4     10E4       34      809       0
+                text3                              1012     1012       D2      809       0
+                text2                              114C     114C        6      809       0
+                text1                              1144     1144        8      809       0
+                text0                              1118     1118       1E      809       0
+                cstackCOMRAM                          1        1        B        1       1
+                cinit                              1136     1136        E      809       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
 
         CLASS   CODE           
                 end_init                              0        0        4         0
-                text7                              127C     127C       2A         0
-                text6                              1012     1012       DC         0
-                text5                              1214     1214       38         0
-                text4                              10EE     10EE       A2         0
-                text3                              124C     124C       30         0
-                text2                              12B4     12B4        6         0
-                text1                              11DC     11DC       38         0
-                text0                              1190     1190       4C         0
-                cinit                              12A6     12A6        E         0
+                text4                              10E4     10E4       34         0
+                text3                              1012     1012       D2         0
+                text2                              114C     114C        6         0
+                text1                              1144     1144        8         0
+                text0                              1118     1118       1E         0
+                cinit                              1136     1136        E         0
 
         CLASS   CONST          
 
@@ -78,7 +72,7 @@ TOTAL           Name                               Link     Load   Length     Sp
         CLASS   MEDIUMCONST    
 
         CLASS   COMRAM         
-                cstackCOMRAM                          1        1       10         1
+                cstackCOMRAM                          1        1        B         1
 
         CLASS   ABS1           
 
@@ -132,9 +126,9 @@ TOTAL           Name                               Link     Load   Length     Sp
 SEGMENTS        Name                           Load    Length   Top    Selector   Space  Class
 
                 reset_vec                      000000  000004  000004         0       0  CODE    
-                cstackCOMRAM                   000001  000010  000011         1       1  COMRAM  
+                cstackCOMRAM                   000001  00000B  00000C         1       1  COMRAM  
                 smallconst                     001000  000012  001012       800       0  SMALLCON
-                text6                          001012  0002A8  0012BA       809       0  CODE    
+                text3                          001012  000140  001152       809       0  CODE    
                 config                         01FFF8  000006  01FFFE     1FFF8       0  CONFIG  
 
 
@@ -157,20 +151,20 @@ UNUSED ADDRESS RANGES
         BANK7            00700-007FF             100
         BANK8            00800-008FF             100
         BANK9            00900-009FF             100
-        BIGRAM           00011-00E7F             E6F
+        BIGRAM           0000C-00E7F             E74
                          00F00-00F5F              60
         CODE             00004-00FFF             FFC
-                         012BA-1FFF7           1ED3E
-        COMRAM           00011-0005F              4F
+                         01152-1FFF7           1EEA6
+        COMRAM           0000C-0005F              54
         CONST            00004-00FFF             FFC
-                         012BA-1FFF7           1ED3E
-        MEDIUMCONST      012BA-0FFFF            ED46
+                         01152-1FFF7           1EEA6
+        MEDIUMCONST      01152-0FFFF            EEAE
                          11000-1FFF7            EFF8
         RAM              00060-00E7F             100
                          00F00-00F5F              60
         SFR              00E80-00EFF              80
                          00F60-00FFF              A0
-        SMALLCONST       012BA-1FFF7             100
+        SMALLCONST       01152-1FFF7             100
         STACK            00060-00E7F             E20
 
                                   Symbol Table
@@ -241,7 +235,7 @@ __Hrparam                rparam        00000
 __Hsfr                   sfr           00000
 __Hsmallconst            smallconst    01012
 __Hspace_0               (abs)         1FFFE
-__Hspace_1               (abs)         00011
+__Hspace_1               (abs)         0000C
 __Hspace_2               (abs)         00000
 __Hstack                 stack         00000
 __Hstruct                struct        00000
@@ -252,9 +246,6 @@ __Htext1                 text1         00000
 __Htext2                 text2         00000
 __Htext3                 text3         00000
 __Htext4                 text4         00000
-__Htext5                 text5         00000
-__Htext6                 text6         00000
-__Htext7                 text7         00000
 __LRAM                   (abs)         00001
 __Labs1                  abs1          00000
 __Lbank0                 bank0         00000
@@ -327,11 +318,8 @@ __Ltext1                 text1         00000
 __Ltext2                 text2         00000
 __Ltext3                 text3         00000
 __Ltext4                 text4         00000
-__Ltext5                 text5         00000
-__Ltext6                 text6         00000
-__Ltext7                 text7         00000
 __S0                     (abs)         1FFFE
-__S1                     (abs)         00011
+__S1                     (abs)         0000C
 __S2                     (abs)         00000
 ___extmem_base           (abs)         20000
 ___inthi_sp              stack         00000
@@ -341,74 +329,55 @@ ___rparam_used           (abs)         00001
 ___sp                    stack         00000
 __accesstop              (abs)         00060
 __activetblptr           (abs)         00001
-__end_of__initialization cinit         012A6
-__end_of_delay_us        text7         012A6
-__end_of_dry             text5         0124C
-__end_of_main            text0         011DC
-__end_of_oscillateMotor  text4         01190
-__end_of_rinse           text3         0127C
-__end_of_spinMotor       text6         010EE
-__end_of_startMotor      text2         012BA
-__end_of_wash            text1         01214
-__initialization         cinit         012A6
+__end_of__initialization cinit         01136
+__end_of_delay_ms        text4         01118
+__end_of_main            text0         01136
+__end_of_spinMotor       text3         010E4
+__end_of_startMotor      text2         01152
+__end_of_stopMotor       text1         0114C
+__initialization         cinit         01136
 __mediumconst            mediumconst   00000
-__pcinit                 cinit         012A6
+__pcinit                 cinit         01136
 __pcstackCOMRAM          cstackCOMRAM  00001
 __psmallconst            smallconst    01000
-__ptext0                 text0         01190
-__ptext1                 text1         011DC
-__ptext2                 text2         012B4
-__ptext3                 text3         0124C
-__ptext4                 text4         010EE
-__ptext5                 text5         01214
-__ptext6                 text6         01012
-__ptext7                 text7         0127C
+__ptext0                 text0         01118
+__ptext1                 text1         01144
+__ptext2                 text2         0114C
+__ptext3                 text3         01012
+__ptext4                 text4         010E4
 __ramtop                 ramtop        01000
-__size_of_delay_us       (abs)         00000
-__size_of_dry            (abs)         00000
+__size_of_delay_ms       (abs)         00000
 __size_of_main           (abs)         00000
-__size_of_oscillateMotor (abs)         00000
-__size_of_rinse          (abs)         00000
 __size_of_spinMotor      (abs)         00000
 __size_of_startMotor     (abs)         00000
-__size_of_wash           (abs)         00000
+__size_of_stopMotor      (abs)         00000
 __smallconst             smallconst    01000
-_delay_us                text7         0127C
-_dry                     text5         01214
-_main                    text0         01190
-_oscillateMotor          text4         010EE
-_rinse                   text3         0124C
-_spinMotor               text6         01012
-_startMotor              text2         012B4
-_wash                    text1         011DC
-delay_us@i               cstackCOMRAM  00004
-delay_us@x               cstackCOMRAM  00001
-dry@cycle                cstackCOMRAM  0000C
-dry@i                    cstackCOMRAM  0000F
-end_of_initialization    cinit         012A6
+_delay_ms                text4         010E4
+_main                    text0         01118
+_spinMotor               text3         01012
+_startMotor              text2         0114C
+_stopMotor               text1         01144
+delay_ms@i               cstackCOMRAM  00004
+delay_ms@x               cstackCOMRAM  00001
+end_of_initialization    cinit         01136
 intlevel0                text          00000
 intlevel1                text          00000
 intlevel2                text          00000
 intlevel3                text          00000
-oscillateMotor@rate      cstackCOMRAM  00006
-rinse@cycle              cstackCOMRAM  00008
-rinse@i                  cstackCOMRAM  0000B
 spinMotor@direction      cstackCOMRAM  00008
 spinMotor@i              cstackCOMRAM  0000A
 spinMotor@rate           cstackCOMRAM  00006
 stackhi                  (abs)         00E7F
 stacklo                  (abs)         00060
 start                    init          00000
-start_initialization     cinit         012A6
-wash@cycle               cstackCOMRAM  0000C
-wash@i                   cstackCOMRAM  0000F
+start_initialization     cinit         01136
 
 
 FUNCTION INFORMATION:
 
  *************** function _main *****************
  Defined at:
-		line 8 in file "Test.c"
+		line 12 in file "Test.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -427,44 +396,40 @@ FUNCTION INFORMATION:
       Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
       Totals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
 Total ram usage:        0 bytes
- Hardware stack levels required when called:    3
+ Hardware stack levels required when called:    2
  This function calls:
-		_dry
-		_oscillateMotor
-		_rinse
 		_spinMotor
 		_startMotor
-		_wash
+		_stopMotor
  This function is called by:
 		Startup code after reset
  This function uses a non-reentrant model
 
 
- *************** function _wash *****************
+ *************** function _stopMotor *****************
  Defined at:
-		line 94 in file "Motor.c"
+		line 26 in file "Motor.c"
  Parameters:    Size  Location     Type
-  cycle           2   11[COMRAM] int 
+		None
  Auto vars:     Size  Location     Type
-  i               2   14[COMRAM] int 
+		None
  Return value:  Size  Location     Type
                   1    wreg      void 
  Registers used:
-		wreg, status,2, status,0, cstack
+		wreg, status,2
  Tracked objects:
 		On entry : 
 		On exit  : 
 		Unchanged: 
  Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
-      Params:         2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Totals:         5       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-Total ram usage:        5 bytes
+      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
+Total ram usage:        0 bytes
  Hardware stack levels used:    1
- Hardware stack levels required when called:    2
  This function calls:
-		_spinMotor
+		Nothing
  This function is called by:
 		_main
  This function uses a non-reentrant model
@@ -499,104 +464,12 @@ Total ram usage:        0 bytes
  This function uses a non-reentrant model
 
 
- *************** function _rinse *****************
- Defined at:
-		line 88 in file "Motor.c"
- Parameters:    Size  Location     Type
-  cycle           2    7[COMRAM] int 
- Auto vars:     Size  Location     Type
-  i               2   10[COMRAM] int 
- Return value:  Size  Location     Type
-                  1    wreg      void 
- Registers used:
-		wreg, status,2, status,0, cstack
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
-      Params:         2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Totals:         5       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-Total ram usage:        5 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    2
- This function calls:
-		_oscillateMotor
- This function is called by:
-		_main
- This function uses a non-reentrant model
-
-
- *************** function _oscillateMotor *****************
- Defined at:
-		line 60 in file "Motor.c"
- Parameters:    Size  Location     Type
-  rate            2    5[COMRAM] int 
- Auto vars:     Size  Location     Type
-		None
- Return value:  Size  Location     Type
-                  1    wreg      void 
- Registers used:
-		wreg, status,2, status,0, cstack
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
-      Params:         2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-Total ram usage:        2 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    1
- This function calls:
-		_delay_us
- This function is called by:
-		_rinse
-		_main
- This function uses a non-reentrant model
-
-
- *************** function _dry *****************
- Defined at:
-		line 100 in file "Motor.c"
- Parameters:    Size  Location     Type
-  cycle           2   11[COMRAM] int 
- Auto vars:     Size  Location     Type
-  i               2   14[COMRAM] int 
- Return value:  Size  Location     Type
-                  1    wreg      void 
- Registers used:
-		wreg, status,2, status,0, cstack
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
-      Params:         2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Totals:         5       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-Total ram usage:        5 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    2
- This function calls:
-		_spinMotor
- This function is called by:
-		_main
- This function uses a non-reentrant model
-
-
  *************** function _spinMotor *****************
  Defined at:
 		line 31 in file "Motor.c"
  Parameters:    Size  Location     Type
   rate            2    5[COMRAM] int 
-  direction       2    7[COMRAM] PTR unsigned char 
-		 -> STR_5(10), STR_4(15), STR_3(10), 
+  direction       2    7[COMRAM] int 
  Auto vars:     Size  Location     Type
   i               2    9[COMRAM] int 
  Return value:  Size  Location     Type
@@ -616,17 +489,17 @@ Total ram usage:        6 bytes
  Hardware stack levels used:    1
  Hardware stack levels required when called:    1
  This function calls:
-		_delay_us
+		_delay_ms
  This function is called by:
+		_main
 		_wash
 		_dry
-		_main
  This function uses a non-reentrant model
 
 
- *************** function _delay_us *****************
+ *************** function _delay_ms *****************
  Defined at:
-		line 15 in file "delay.c"
+		line 4 in file "delay.c"
  Parameters:    Size  Location     Type
   x               2    0[COMRAM] int 
  Auto vars:     Size  Location     Type
@@ -659,27 +532,24 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 delay.c
-		_delay_us      		CODE           	127C	0000	43
+		_delay_ms      		CODE           	10E4	0000	53
 
-delay.c estimated size: 43
+delay.c estimated size: 53
 
 Motor.c
-		_wash          		CODE           	11DC	0000	57
-		_rinse         		CODE           	124C	0000	49
-		_startMotor    		CODE           	12B4	0000	7
-		_oscillateMotor		CODE           	10EE	0000	163
-		_dry           		CODE           	1214	0000	57
-		_spinMotor     		CODE           	1012	0000	221
+		_stopMotor     		CODE           	1144	0000	9
+		_startMotor    		CODE           	114C	0000	7
+		_spinMotor     		CODE           	1012	0000	211
 
-Motor.c estimated size: 554
+Motor.c estimated size: 227
 
 shared
-		__initialization		CODE           	12A6	0000	1
+		__initialization		CODE           	1136	0000	1
 
 shared estimated size: 1
 
 Test.c
-		_main          		CODE           	1190	0000	77
+		_main          		CODE           	1118	0000	31
 
-Test.c estimated size: 77
+Test.c estimated size: 31
 

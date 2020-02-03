@@ -3,20 +3,14 @@ Version 3.2 HI-TECH Software Intermediate Code
 "16 Motor.h
 [v _startMotor `(v ~T0 @X0 0 ef ]
 "20
-[v _spinMotor `(v ~T0 @X0 0 ef2`i`*uc ]
-"22
-[v _oscillateMotor `(v ~T0 @X0 0 ef1`i ]
-"24
-[v _rinse `(v ~T0 @X0 0 ef1`i ]
-"26
-[v _wash `(v ~T0 @X0 0 ef1`i ]
-"28
-[v _dry `(v ~T0 @X0 0 ef1`i ]
+[v _spinMotor `(v ~T0 @X0 0 ef2`i`i ]
+"18
+[v _stopMotor `(v ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f97j60.h: 49: extern volatile unsigned char MAADR5 @ 0xE80;
-"51 D:\Personal Items\XC8 C\include\pic18f97j60.h
+"51 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic18f97j60.h
 [; ;pic18f97j60.h: 51: asm("MAADR5 equ 0E80h");
 [; <" MAADR5 equ 0E80h ;# ">
 [; ;pic18f97j60.h: 55: extern volatile unsigned char MAADR6 @ 0xE81;
@@ -6275,7 +6269,7 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 157: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 159: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 161: extern __nonreentrant void _delay3(unsigned char);
-[; ;amt.h: 4: void MSdelay(int x);
+[; ;amt.h: 4: void delay_ms(int x);
 [; ;amt.h: 5: void delay_us(int x);
 [; ;amt.h: 7: void SPI1init(void);
 [; ;amt.h: 8: void SPI1out(char Code);
@@ -6293,8 +6287,8 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;amt.h: 25: void cursor_home(void);
 [; ;Motor.h: 16: void startMotor();
 [; ;Motor.h: 18: void stopMotor();
-[; ;Motor.h: 20: void spinMotor(int rate, char direction[]);
-[; ;Motor.h: 22: void oscillateMotor(int rate);
+[; ;Motor.h: 20: void spinMotor(int rate, int direction);
+[; ;Motor.h: 22: void oscillateMotor(int rate, int step);
 [; ;Motor.h: 24: void rinse (int cycle);
 [; ;Motor.h: 26: void wash (int cycle);
 [; ;Motor.h: 28: void dry (int cycle);
@@ -6360,32 +6354,38 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;string.h: 57: extern char * strrchr(const char *, int);
 [; ;string.h: 58: extern char * strrichr(const char *, int);
 "8 Test.c
+[p x XINST=OFF ]
+"9
+[p x FOSC=HS ]
+"10
+[p x WDT=OFF ]
+"12
 [v _main `(v ~T0 @X0 1 ef ]
 {
-[; ;Test.c: 8: void main(void) {
+[; ;Test.c: 12: void main(void) {
 [e :U _main ]
 [f ]
-[; ;Test.c: 9: startMotor();
-"9
-[e ( _startMotor ..  ]
-[; ;Test.c: 10: spinMotor(5, "clockwise");
-"10
-[e ( _spinMotor (2 , -> 5 `i -> :s 1C `*uc ]
-[; ;Test.c: 11: oscillateMotor(5);
-"11
-[e ( _oscillateMotor (1 -> 5 `i ]
-[; ;Test.c: 12: rinse(5);
-"12
-[e ( _rinse (1 -> 5 `i ]
-[; ;Test.c: 13: wash(5);
+[; ;Test.c: 13: startMotor();
 "13
-[e ( _wash (1 -> 5 `i ]
-[; ;Test.c: 14: dry(10);
+[e ( _startMotor ..  ]
+[; ;Test.c: 14: while (1) {
 "14
-[e ( _dry (1 -> 10 `i ]
-[; ;Test.c: 15: }
-"15
+[e :U 775 ]
+{
+[; ;Test.c: 16: spinMotor(5, 0);
+"16
+[e ( _spinMotor (2 , -> 5 `i -> 0 `i ]
+[; ;Test.c: 35: stopMotor();
+"35
+[e ( _stopMotor ..  ]
+"38
+}
+[e :U 774 ]
+"14
+[e $U 775  ]
+[e :U 776 ]
+[; ;Test.c: 38: }
+[; ;Test.c: 39: }
+"39
 [e :UE 773 ]
 }
-[a 1C 99 108 111 99 107 119 105 115 101 0 ]
-

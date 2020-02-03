@@ -17,9 +17,9 @@ extern "C" {
     
     void stopMotor(); 
     
-    void spinMotor(int rate, char direction[]);
+    void spinMotor(int rate, int direction);
     
-    void oscillateMotor(int rate); 
+    void oscillateMotor(int rate, int step); 
     
     void rinse (int cycle);
     

@@ -3,88 +3,56 @@
 [d edition pro ]
 [d chip 18F97J60 ]
 [d frameptr 4065 ]
-"62 D:\Personal Items\XC8 C\sources\common\float.c
+"62 C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\float.c
 [v ___ftpack __ftpack `(f  1 e 3 0 ]
-"86 D:\Personal Items\XC8 C\sources\common\ftadd.c
+"86 C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\ftadd.c
 [v ___ftadd __ftadd `(f  1 e 3 0 ]
-"54 D:\Personal Items\XC8 C\sources\common\ftdiv.c
+"54 C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\ftdiv.c
 [v ___ftdiv __ftdiv `(f  1 e 3 0 ]
-"62 D:\Personal Items\XC8 C\sources\common\ftmul.c
+"62 C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\ftmul.c
 [v ___ftmul __ftmul `(f  1 e 3 0 ]
-"20 D:\Personal Items\XC8 C\sources\common\ftsub.c
+"20 C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\ftsub.c
 [v ___ftsub __ftsub `(f  1 e 3 0 ]
-"10 D:\Personal Items\XC8 C\sources\common\sprcadd.c
+"10 C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\sprcadd.c
 [v ___fladd __fladd `(d  1 e 3 0 ]
 "245
 [v ___flsub __flsub `(d  1 e 3 0 ]
-"11 D:\Personal Items\XC8 C\sources\common\sprcdiv.c
+"11 C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\sprcdiv.c
 [v ___fldiv __fldiv `(d  1 e 3 0 ]
-"8 D:\Personal Items\XC8 C\sources\common\sprcmul.c
+"8 C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\sprcmul.c
 [v ___flmul __flmul `(d  1 e 3 0 ]
-"15 D:\Personal Items\XC8 C\sources\common\Umul32.c
+"15 C:\Program Files (x86)\Microchip\xc8\v1.37\sources\common\Umul32.c
 [v ___lmul __lmul `(ul  1 e 4 0 ]
-"15 C:\Users\typha\Documents\GitHub\StepperMotor.X\delay.c
-[v _delay_us delay_us `(v  1 e 1 0 ]
-"22 C:\Users\typha\Documents\GitHub\StepperMotor.X\Motor.c
+"4 D:\Course Materials\Advanced Microcontroller Technology\Project Folder\StepperMotor.X\delay.c
+[v _delay_ms delay_ms `(v  1 e 1 0 ]
+"22 D:\Course Materials\Advanced Microcontroller Technology\Project Folder\StepperMotor.X\Motor.c
 [v _startMotor startMotor `(v  1 e 1 0 ]
+"26
+[v _stopMotor stopMotor `(v  1 e 1 0 ]
 "31
 [v _spinMotor spinMotor `(v  1 e 1 0 ]
-"60
+"61
 [v _oscillateMotor oscillateMotor `(v  1 e 1 0 ]
-"88
-[v _rinse rinse `(v  1 e 1 0 ]
-"94
-[v _wash wash `(v  1 e 1 0 ]
-"100
-[v _dry dry `(v  1 e 1 0 ]
-"8 C:\Users\typha\Documents\GitHub\StepperMotor.X\Test.c
+"12 D:\Course Materials\Advanced Microcontroller Technology\Project Folder\StepperMotor.X\Test.c
 [v _main main `(v  1 e 1 0 ]
-"4789 D:\Personal Items\XC8 C\include\pic18f97j60.h
+"4789 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic18f97j60.h
 [v _PORTD PORTD `VEuc  1 e 1 @3971 ]
 "7825
 [v _TRISD TRISD `VEuc  1 e 1 @3989 ]
-"8 C:\Users\typha\Documents\GitHub\StepperMotor.X\Test.c
+"12 D:\Course Materials\Advanced Microcontroller Technology\Project Folder\StepperMotor.X\Test.c
 [v _main main `(v  1 e 1 0 ]
 {
-"15
+"39
 } 0
-"94 C:\Users\typha\Documents\GitHub\StepperMotor.X\Motor.c
-[v _wash wash `(v  1 e 1 0 ]
+"26 D:\Course Materials\Advanced Microcontroller Technology\Project Folder\StepperMotor.X\Motor.c
+[v _stopMotor stopMotor `(v  1 e 1 0 ]
 {
-"95
-[v wash@i i `i  1 a 2 14 ]
-"94
-[v wash@cycle cycle `i  1 p 2 11 ]
-"98
+"29
 } 0
 "22
 [v _startMotor startMotor `(v  1 e 1 0 ]
 {
 "24
-} 0
-"88
-[v _rinse rinse `(v  1 e 1 0 ]
-{
-"89
-[v rinse@i i `i  1 a 2 10 ]
-"88
-[v rinse@cycle cycle `i  1 p 2 7 ]
-"92
-} 0
-"60
-[v _oscillateMotor oscillateMotor `(v  1 e 1 0 ]
-{
-[v oscillateMotor@rate rate `i  1 p 2 5 ]
-"86
-} 0
-"100
-[v _dry dry `(v  1 e 1 0 ]
-{
-"101
-[v dry@i i `i  1 a 2 14 ]
-"100
-[v dry@cycle cycle `i  1 p 2 11 ]
-"104
 } 0
 "31
 [v _spinMotor spinMotor `(v  1 e 1 0 ]
@@ -93,15 +61,15 @@
 [v spinMotor@i i `i  1 a 2 9 ]
 "31
 [v spinMotor@rate rate `i  1 p 2 5 ]
-[v spinMotor@direction direction `*.32uc  1 p 2 7 ]
-"58
+[v spinMotor@direction direction `i  1 p 2 7 ]
+"59
 } 0
-"15 C:\Users\typha\Documents\GitHub\StepperMotor.X\delay.c
-[v _delay_us delay_us `(v  1 e 1 0 ]
+"4 D:\Course Materials\Advanced Microcontroller Technology\Project Folder\StepperMotor.X\delay.c
+[v _delay_ms delay_ms `(v  1 e 1 0 ]
 {
-"17
-[v delay_us@i i `i  1 a 2 3 ]
-"15
-[v delay_us@x x `i  1 p 2 0 ]
-"21
+"6
+[v delay_ms@i i `i  1 a 2 3 ]
+"4
+[v delay_ms@x x `i  1 p 2 0 ]
+"10
 } 0

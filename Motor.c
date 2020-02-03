@@ -6,21 +6,15 @@
 #pragma config XINST = OFF
 #pragma config FOSC = HS
 #pragma config WDT = OFF
-#define steps 250
+#define steps 100
 
 // Going to left is Clockwise
 // Going to Right is Anti Clockwise
+// 0 = CW | 1 = AW
 // Everything will be done in full-drive (highest torque)
-//void startMotor();
-//void stopMotor();
-//void spinMotor(int rate, char direction[]);
-//void oscillateMotor(int rate);
-//void rinse (int cycle);
-//void wash (int cycle);
-//void dry (int cycle);
 
 void startMotor() {
-    TRISD = 0x00;       // Setting PortD to Output
+    TRISD = 0;       // Setting PortD to Output
 }
 
 void stopMotor() {
@@ -28,78 +22,83 @@ void stopMotor() {
     TRISD = 0xFF;       // Setting PORTD to Input 
 }
 
-void spinMotor(int rate, char direction[]) {
-    for (int i = 0; i < steps; i++) {
-        if (direction == "anti_clockwise"){
+void spinMotor(int rate, int direction) {
+    int i = 0;
+    for (; i < steps; i++) {
+        if (direction == 0 ){
             PORTD = 0b00000011;
-            delay_us(rate);
+            delay_ms(rate);
             PORTD = 0b00000110;
-            delay_us(rate);
+            delay_ms(rate);
             PORTD = 0b00001100;
-            delay_us(rate);
+            delay_ms(rate);
             PORTD = 0b00001001;
-            delay_us(rate);
+            delay_ms(rate);
             PORTD = 0b00000011;
-            delay_us(rate);
+            delay_ms(rate);
         }
-        if (direction == "clockwise"){
+        else if (direction == 1){
             PORTD = 0b00001001;
-            delay_us(rate);
+            delay_ms(rate);
             PORTD = 0b00001100;
-            delay_us(rate);
+            delay_ms(rate);
             PORTD = 0b00000110;
-            delay_us(rate);
+            delay_ms(rate);
             PORTD = 0b00000011;
-            delay_us(rate);
+            delay_ms(rate);
             PORTD = 0b00001001;
-            delay_us(rate);
+            delay_ms(rate);
         }
     }
-} //clockwise or anti_clockwise
+} 
 
-void oscillateMotor (int rate) {
-               
-            // Anti-clockwise
-            PORTD = 0b00000011;
-            delay_us(rate);
-            PORTD = 0b00000110;
-            delay_us(rate);
-            PORTD = 0b00001100;
-            delay_us(rate);
-            PORTD = 0b00001001;
-            delay_us(rate);
-            PORTD = 0b00000011;
-            delay_us(rate);
-        
-            //Clockwise
-            PORTD = 0b00001001;
-            delay_us(rate);
-            PORTD = 0b00001100;
-            delay_us(rate);
-            PORTD = 0b00000110;
-            delay_us(rate);
-            PORTD = 0b00000011;
-            delay_us(rate);
-            PORTD = 0b00001001;
-            delay_us(rate);
+void oscillateMotor (int rate, int step) {
+    int j = 0;
     
+    // Going Clockwise direction
+    for (; j < step ; j ++) {
+            PORTD = 0b00000011;
+            delay_ms(rate);
+            PORTD = 0b00000110;
+            delay_ms(rate);
+            PORTD = 0b00001100;
+            delay_ms(rate);
+            PORTD = 0b00001001;
+            delay_ms(rate);
+            PORTD = 0b00000011;
+            delay_ms(rate);
+    }
+    
+    // Going Anticlockwise direction
+    for (j = 0 ; j < step ; j++) {
+            PORTD = 0b00001001;
+            delay_ms(rate);
+            PORTD = 0b00001100;
+            delay_ms(rate);
+            PORTD = 0b00000110;
+            delay_ms(rate);
+            PORTD = 0b00000011;
+            delay_ms(rate);
+            PORTD = 0b00001001;
+            delay_ms(rate);
+    }
 }
 
 void rinse (int cycle) {
     for (int i = 0; i < cycle; i++) {
-        oscillateMotor(50);
+        oscillateMotor(10, 100);
     }
 }
 
 void wash (int cycle) {
     for (int i = 0; i < cycle; i++) {
-        spinMotor(5, "clockwise");
+        spinMotor(5, 0); // Change CW / ACW to 1 /0
     }
 }
 
 void dry (int cycle) {
     for (int i = 0; i < cycle; i++) {
-        spinMotor(10, "anti_clockwise");
+        spinMotor(10, 1);
     }
 }
 
@@ -120,6 +119,8 @@ void allergyWashMode () {
 }
 
 void turboDry(int cycle) {
-    // i think this one just repeat of dry :pepethink:
+     for (int i = 0; i < cycle; i++) {
+        oscillateMotor(2, 120);
+    }
 }
 

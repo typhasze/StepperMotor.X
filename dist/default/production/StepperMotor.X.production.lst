@@ -1,7 +1,7 @@
 
 
 Microchip Technology PIC18 LITE Macro Assembler V1.37 build -260352376 
-                                                                                               Sun Feb 02 01:04:47 2020
+                                                                                               Mon Feb 03 15:05:16 2020
 
 Microchip Technology Omniscient Code Generator v1.37 (Free mode) build 201603110536
      1                           	processor	18F97J60
@@ -16,918 +16,539 @@ Microchip Technology Omniscient Code Generator v1.37 (Free mode) build 201603110
     10                           	psect	text2,global,reloc=2,class=CODE,delta=1
     11                           	psect	text3,global,reloc=2,class=CODE,delta=1
     12                           	psect	text4,global,reloc=2,class=CODE,delta=1
-    13                           	psect	text5,global,reloc=2,class=CODE,delta=1
-    14                           	psect	text6,global,reloc=2,class=CODE,delta=1
-    15                           	psect	text7,global,reloc=2,class=CODE,delta=1
-    16                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1
-    17                           	psect	rparam,global,class=COMRAM,space=1,delta=1
-    18  0000                     _PORTD	set	3971
-    19  0000                     _TRISD	set	3989
-    20                           
-    21                           	psect	smallconst
-    22  001000                     __psmallconst:
-    23                           	opt stack 0
-    24  001000  00                 	db	0
-    25  001001                     STR_1:
-    26  001001  61                 	db	97	;'a'
-    27  001002  6E                 	db	110	;'n'
-    28  001003  74                 	db	116	;'t'
-    29  001004  69                 	db	105	;'i'
-    30  001005  5F                 	db	95	;'_'
-    31  001006  63                 	db	99	;'c'
-    32  001007  6C                 	db	108	;'l'
-    33  001008  6F                 	db	111	;'o'
-    34  001009  63                 	db	99	;'c'
-    35  00100A  6B                 	db	107	;'k'
-    36  00100B  77                 	db	119	;'w'
-    37  00100C  69                 	db	105	;'i'
-    38  00100D  73                 	db	115	;'s'
-    39  00100E  65                 	db	101	;'e'
-    40  00100F  00                 	db	0
+    13                           	psect	intsave_regs,global,class=BIGRAM,space=1,delta=1
+    14                           	psect	rparam,global,class=COMRAM,space=1,delta=1
+    15  0000                     _PORTD	set	3971
+    16  0000                     _TRISD	set	3989
+    17                           
+    18                           	psect	smallconst
+    19  001000                     __psmallconst:
+    20                           	opt stack 0
+    21  001000  00                 	db	0
+    22  001001                     STR_2:
+    23  001001  61                 	db	97	;'a'
+    24  001002  6E                 	db	110	;'n'
+    25  001003  74                 	db	116	;'t'
+    26  001004  69                 	db	105	;'i'
+    27  001005  5F                 	db	95	;'_'
+    28  001006  63                 	db	99	;'c'
+    29  001007  6C                 	db	108	;'l'
+    30  001008  6F                 	db	111	;'o'
+    31  001009  63                 	db	99	;'c'
+    32  00100A  6B                 	db	107	;'k'
+    33  00100B  77                 	db	119	;'w'
+    34  00100C  69                 	db	105	;'i'
+    35  00100D  73                 	db	115	;'s'
+    36  00100E  65                 	db	101	;'e'
+    37  00100F  00                 	db	0
+    38  0000                     
+    39                           ; #config settings
+    40  001010  00                 	db	0	; dummy byte at the end
     41  0000                     
-    42                           ; #config settings
-    43  001010  00                 	db	0	; dummy byte at the end
-    44  0000                     
-    45                           	psect	cinit
-    46  0012A6                     __pcinit:
-    47                           	opt stack 0
-    48  0012A6                     start_initialization:
-    49                           	opt stack 0
-    50  0012A6                     __initialization:
-    51                           	opt stack 0
-    52  0012A6                     end_of_initialization:
-    53                           	opt stack 0
-    54  0012A6                     __end_of__initialization:
-    55                           	opt stack 0
-    56  0012A6  0E00               	movlw	low (__Lsmallconst shr (0+16))
-    57  0012A8  6EF8               	movwf	tblptru,c
-    58  0012AA  0E10               	movlw	high __Lsmallconst
-    59  0012AC  6EF7               	movwf	tblptrh,c
-    60  0012AE  0100               	movlb	0
-    61  0012B0  EFC8  F008         	goto	_main	;jump to C main() function
-    62                           tblptru	equ	0xFF8
-    63                           tblptrh	equ	0xFF7
-    64                           
-    65                           	psect	cstackCOMRAM
-    66  000001                     __pcstackCOMRAM:
-    67                           	opt stack 0
-    68  000001                     delay_us@x:
-    69                           	opt stack 0
-    70                           
-    71                           ; 2 bytes @ 0x0
-    72  000001                     	ds	2
-    73  000003                     ??_delay_us:
-    74                           
-    75                           ; 1 bytes @ 0x2
-    76  000003                     	ds	1
-    77  000004                     delay_us@i:
-    78                           	opt stack 0
-    79                           
-    80                           ; 2 bytes @ 0x3
-    81  000004                     	ds	2
-    82  000006                     spinMotor@rate:
-    83                           	opt stack 0
-    84  000006                     oscillateMotor@rate:
+    42                           	psect	cinit
+    43  001136                     __pcinit:
+    44                           	opt stack 0
+    45  001136                     start_initialization:
+    46                           	opt stack 0
+    47  001136                     __initialization:
+    48                           	opt stack 0
+    49  001136                     end_of_initialization:
+    50                           	opt stack 0
+    51  001136                     __end_of__initialization:
+    52                           	opt stack 0
+    53  001136  0E00               	movlw	low (__Lsmallconst shr (0+16))
+    54  001138  6EF8               	movwf	tblptru,c
+    55  00113A  0E10               	movlw	high __Lsmallconst
+    56  00113C  6EF7               	movwf	tblptrh,c
+    57  00113E  0100               	movlb	0
+    58  001140  EF8C  F008         	goto	_main	;jump to C main() function
+    59                           tblptru	equ	0xFF8
+    60                           tblptrh	equ	0xFF7
+    61                           
+    62                           	psect	cstackCOMRAM
+    63  000001                     __pcstackCOMRAM:
+    64                           	opt stack 0
+    65  000001                     delay_ms@x:
+    66                           	opt stack 0
+    67                           
+    68                           ; 2 bytes @ 0x0
+    69  000001                     	ds	2
+    70  000003                     ??_delay_ms:
+    71                           
+    72                           ; 1 bytes @ 0x2
+    73  000003                     	ds	1
+    74  000004                     delay_ms@i:
+    75                           	opt stack 0
+    76                           
+    77                           ; 2 bytes @ 0x3
+    78  000004                     	ds	2
+    79  000006                     spinMotor@rate:
+    80                           	opt stack 0
+    81                           
+    82                           ; 2 bytes @ 0x5
+    83  000006                     	ds	2
+    84  000008                     spinMotor@direction:
     85                           	opt stack 0
     86                           
-    87                           ; 2 bytes @ 0x5
-    88  000006                     	ds	2
-    89  000008                     spinMotor@direction:
+    87                           ; 2 bytes @ 0x7
+    88  000008                     	ds	2
+    89  00000A                     spinMotor@i:
     90                           	opt stack 0
-    91  000008                     rinse@cycle:
-    92                           	opt stack 0
-    93                           
-    94                           ; 2 bytes @ 0x7
-    95  000008                     	ds	2
-    96  00000A                     ??_rinse:
-    97  00000A                     spinMotor@i:
-    98                           	opt stack 0
-    99                           
-   100                           ; 2 bytes @ 0x9
-   101  00000A                     	ds	1
-   102  00000B                     rinse@i:
-   103                           	opt stack 0
-   104                           
-   105                           ; 2 bytes @ 0xA
-   106  00000B                     	ds	1
-   107  00000C                     wash@cycle:
-   108                           	opt stack 0
-   109  00000C                     dry@cycle:
-   110                           	opt stack 0
-   111                           
-   112                           ; 2 bytes @ 0xB
-   113  00000C                     	ds	2
-   114  00000E                     ??_wash:
-   115  00000E                     ??_dry:
-   116                           
-   117                           ; 1 bytes @ 0xD
-   118  00000E                     	ds	1
-   119  00000F                     wash@i:
-   120                           	opt stack 0
-   121  00000F                     dry@i:
-   122                           	opt stack 0
-   123                           
-   124                           ; 2 bytes @ 0xE
-   125  00000F                     	ds	2
-   126  000011                     tblptru	equ	0xFF8
-   127                           tblptrh	equ	0xFF7
-   128                           
-   129                           ; 1 bytes @ 0x10
+    91                           
+    92                           ; 2 bytes @ 0x9
+    93  00000A                     	ds	2
+    94  00000C                     tblptru	equ	0xFF8
+    95                           tblptrh	equ	0xFF7
+    96                           
+    97                           ; 1 bytes @ 0xB
+    98 ;;
+    99 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
+   100 ;;
+   101 ;; *************** function _main *****************
+   102 ;; Defined at:
+   103 ;;		line 12 in file "Test.c"
+   104 ;; Parameters:    Size  Location     Type
+   105 ;;		None
+   106 ;; Auto vars:     Size  Location     Type
+   107 ;;		None
+   108 ;; Return value:  Size  Location     Type
+   109 ;;                  1    wreg      void 
+   110 ;; Registers used:
+   111 ;;		wreg, status,2, status,0, cstack
+   112 ;; Tracked objects:
+   113 ;;		On entry : 0/0
+   114 ;;		On exit  : 0/0
+   115 ;;		Unchanged: 0/0
+   116 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   117 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   118 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   119 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   120 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   121 ;;Total ram usage:        0 bytes
+   122 ;; Hardware stack levels required when called:    2
+   123 ;; This function calls:
+   124 ;;		_spinMotor
+   125 ;;		_startMotor
+   126 ;;		_stopMotor
+   127 ;; This function is called by:
+   128 ;;		Startup code after reset
+   129 ;; This function uses a non-reentrant model
    130 ;;
-   131 ;;Main: autosize = 0, tempsize = 0, incstack = 0, save=0
-   132 ;;
-   133 ;; *************** function _main *****************
-   134 ;; Defined at:
-   135 ;;		line 8 in file "Test.c"
-   136 ;; Parameters:    Size  Location     Type
-   137 ;;		None
-   138 ;; Auto vars:     Size  Location     Type
-   139 ;;		None
-   140 ;; Return value:  Size  Location     Type
-   141 ;;                  1    wreg      void 
-   142 ;; Registers used:
-   143 ;;		wreg, status,2, status,0, cstack
-   144 ;; Tracked objects:
-   145 ;;		On entry : 0/0
-   146 ;;		On exit  : 0/0
-   147 ;;		Unchanged: 0/0
-   148 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+   131                           
+   132                           	psect	text0
+   133  001118                     __ptext0:
+   134                           	opt stack 0
+   135  001118                     _main:
+   136                           	opt stack 29
+   137                           
+   138                           ;Test.c: 13: startMotor();
+   139                           
+   140                           ;incstack = 0
+   141  001118  ECA6  F008         	call	_startMotor	;wreg free
+   142  00111C                     l965:
+   143                           
+   144                           ;Test.c: 16: spinMotor(5, 0);
+   145  00111C  0E00               	movlw	0
+   146  00111E  6E07               	movwf	spinMotor@rate+1,c
+   147  001120  0E05               	movlw	5
+   148  001122  6E06               	movwf	spinMotor@rate,c
+   149  001124  0E00               	movlw	0
+   150  001126  6E09               	movwf	spinMotor@direction+1,c
+   151  001128  0E00               	movlw	0
+   152  00112A  6E08               	movwf	spinMotor@direction,c
+   153  00112C  EC09  F008         	call	_spinMotor	;wreg free
+   154                           
+   155                           ;Test.c: 35: stopMotor();
+   156  001130  ECA2  F008         	call	_stopMotor	;wreg free
+   157  001134  D7F3               	goto	l965
+   158  001136                     __end_of_main:
+   159                           	opt stack 0
+   160                           tblptru	equ	0xFF8
+   161                           tblptrh	equ	0xFF7
+   162                           
+   163 ;; *************** function _stopMotor *****************
+   164 ;; Defined at:
+   165 ;;		line 26 in file "Motor.c"
+   166 ;; Parameters:    Size  Location     Type
+   167 ;;		None
+   168 ;; Auto vars:     Size  Location     Type
+   169 ;;		None
+   170 ;; Return value:  Size  Location     Type
+   171 ;;                  1    wreg      void 
+   172 ;; Registers used:
+   173 ;;		wreg, status,2
+   174 ;; Tracked objects:
+   175 ;;		On entry : 0/0
+   176 ;;		On exit  : 0/0
+   177 ;;		Unchanged: 0/0
+   178 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12  BANK13  BANK14  BANK15
-   149 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
+   179 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   150 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   180 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   151 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+   181 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   152 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   182 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   153 ;;Total ram usage:        0 bytes
-   154 ;; Hardware stack levels required when called:    3
-   155 ;; This function calls:
-   156 ;;		_dry
-   157 ;;		_oscillateMotor
-   158 ;;		_rinse
-   159 ;;		_spinMotor
-   160 ;;		_startMotor
-   161 ;;		_wash
-   162 ;; This function is called by:
-   163 ;;		Startup code after reset
-   164 ;; This function uses a non-reentrant model
-   165 ;;
-   166                           
-   167                           	psect	text0
-   168  001190                     __ptext0:
-   169                           	opt stack 0
-   170  001190                     _main:
-   171                           	opt stack 28
-   172                           
-   173                           ;Test.c: 9: startMotor();
-   174                           
-   175                           ;incstack = 0
-   176  001190  EC5A  F009         	call	_startMotor	;wreg free
-   177                           
-   178                           ;Test.c: 10: spinMotor(5, "clockwise");
-   179  001194  0E00               	movlw	0
-   180  001196  6E07               	movwf	spinMotor@rate+1,c
-   181  001198  0E05               	movlw	5
-   182  00119A  6E06               	movwf	spinMotor@rate,c
-   183  00119C  0E06               	movlw	low (STR_1+5)
-   184  00119E  6E08               	movwf	spinMotor@direction,c
-   185  0011A0  0E10               	movlw	high (STR_1+5)
-   186  0011A2  6E09               	movwf	spinMotor@direction+1,c
-   187  0011A4  EC09  F008         	call	_spinMotor	;wreg free
-   188                           
-   189                           ;Test.c: 11: oscillateMotor(5);
-   190  0011A8  0E00               	movlw	0
-   191  0011AA  6E07               	movwf	oscillateMotor@rate+1,c
-   192  0011AC  0E05               	movlw	5
-   193  0011AE  6E06               	movwf	oscillateMotor@rate,c
-   194  0011B0  EC77  F008         	call	_oscillateMotor	;wreg free
-   195                           
-   196                           ;Test.c: 12: rinse(5);
-   197  0011B4  0E00               	movlw	0
-   198  0011B6  6E09               	movwf	rinse@cycle+1,c
-   199  0011B8  0E05               	movlw	5
-   200  0011BA  6E08               	movwf	rinse@cycle,c
-   201  0011BC  EC26  F009         	call	_rinse	;wreg free
-   202                           
-   203                           ;Test.c: 13: wash(5);
-   204  0011C0  0E00               	movlw	0
-   205  0011C2  6E0D               	movwf	wash@cycle+1,c
-   206  0011C4  0E05               	movlw	5
-   207  0011C6  6E0C               	movwf	wash@cycle,c
-   208  0011C8  ECEE  F008         	call	_wash	;wreg free
-   209                           
-   210                           ;Test.c: 14: dry(10);
-   211  0011CC  0E00               	movlw	0
-   212  0011CE  6E0D               	movwf	dry@cycle+1,c
-   213  0011D0  0E0A               	movlw	10
-   214  0011D2  6E0C               	movwf	dry@cycle,c
-   215  0011D4  EC0A  F009         	call	_dry	;wreg free
-   216  0011D8  EF00  F000         	goto	start
-   217  0011DC                     __end_of_main:
-   218                           	opt stack 0
-   219                           tblptru	equ	0xFF8
-   220                           tblptrh	equ	0xFF7
-   221                           
-   222 ;; *************** function _wash *****************
-   223 ;; Defined at:
-   224 ;;		line 94 in file "Motor.c"
-   225 ;; Parameters:    Size  Location     Type
-   226 ;;  cycle           2   11[COMRAM] int 
-   227 ;; Auto vars:     Size  Location     Type
-   228 ;;  i               2   14[COMRAM] int 
-   229 ;; Return value:  Size  Location     Type
-   230 ;;                  1    wreg      void 
-   231 ;; Registers used:
-   232 ;;		wreg, status,2, status,0, cstack
-   233 ;; Tracked objects:
-   234 ;;		On entry : 0/0
-   235 ;;		On exit  : 0/0
-   236 ;;		Unchanged: 0/0
-   237 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+   183 ;;Total ram usage:        0 bytes
+   184 ;; Hardware stack levels used:    1
+   185 ;; This function calls:
+   186 ;;		Nothing
+   187 ;; This function is called by:
+   188 ;;		_main
+   189 ;; This function uses a non-reentrant model
+   190 ;;
+   191                           
+   192                           	psect	text1
+   193  001144                     __ptext1:
+   194                           	opt stack 0
+   195  001144                     _stopMotor:
+   196                           	opt stack 30
+   197                           
+   198                           ;Motor.c: 27: PORTD = 0x00;
+   199                           
+   200                           ;incstack = 0
+   201  001144  0E00               	movlw	0
+   202  001146  6E83               	movwf	3971,c	;volatile
+   203                           
+   204                           ;Motor.c: 28: TRISD = 0xFF;
+   205  001148  6895               	setf	3989,c	;volatile
+   206  00114A  0012               	return		;funcret
+   207  00114C                     __end_of_stopMotor:
+   208                           	opt stack 0
+   209                           tblptru	equ	0xFF8
+   210                           tblptrh	equ	0xFF7
+   211                           
+   212 ;; *************** function _startMotor *****************
+   213 ;; Defined at:
+   214 ;;		line 22 in file "Motor.c"
+   215 ;; Parameters:    Size  Location     Type
+   216 ;;		None
+   217 ;; Auto vars:     Size  Location     Type
+   218 ;;		None
+   219 ;; Return value:  Size  Location     Type
+   220 ;;                  1    wreg      void 
+   221 ;; Registers used:
+   222 ;;		wreg, status,2
+   223 ;; Tracked objects:
+   224 ;;		On entry : 0/0
+   225 ;;		On exit  : 0/0
+   226 ;;		Unchanged: 0/0
+   227 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12  BANK13  BANK14  BANK15
-   238 ;;      Params:         2       0       0       0       0       0       0       0       0       0       0       0       
+   228 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   239 ;;      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       
+   229 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   240 ;;      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       
+   230 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   241 ;;      Totals:         5       0       0       0       0       0       0       0       0       0       0       0       
+   231 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   242 ;;Total ram usage:        5 bytes
-   243 ;; Hardware stack levels used:    1
-   244 ;; Hardware stack levels required when called:    2
-   245 ;; This function calls:
-   246 ;;		_spinMotor
-   247 ;; This function is called by:
-   248 ;;		_main
-   249 ;; This function uses a non-reentrant model
-   250 ;;
-   251                           
-   252                           	psect	text1
-   253  0011DC                     __ptext1:
+   232 ;;Total ram usage:        0 bytes
+   233 ;; Hardware stack levels used:    1
+   234 ;; This function calls:
+   235 ;;		Nothing
+   236 ;; This function is called by:
+   237 ;;		_main
+   238 ;; This function uses a non-reentrant model
+   239 ;;
+   240                           
+   241                           	psect	text2
+   242  00114C                     __ptext2:
+   243                           	opt stack 0
+   244  00114C                     _startMotor:
+   245                           	opt stack 30
+   246                           
+   247                           ;Motor.c: 23: TRISD = 0;
+   248                           
+   249                           ;incstack = 0
+   250  00114C  0E00               	movlw	0
+   251  00114E  6E95               	movwf	3989,c	;volatile
+   252  001150  0012               	return		;funcret
+   253  001152                     __end_of_startMotor:
    254                           	opt stack 0
-   255  0011DC                     _wash:
-   256                           	opt stack 28
+   255                           tblptru	equ	0xFF8
+   256                           tblptrh	equ	0xFF7
    257                           
-   258                           ;Motor.c: 95: for (int i = 0; i < cycle; i++) {
-   259                           
-   260                           ;incstack = 0
-   261  0011DC  0E00               	movlw	0
-   262  0011DE  6E10               	movwf	wash@i+1,c
-   263  0011E0  0E00               	movlw	0
-   264  0011E2  6E0F               	movwf	wash@i,c
-   265  0011E4  D00C               	goto	l912
-   266  0011E6                     l908:
-   267                           
-   268                           ;Motor.c: 96: spinMotor(5, "clockwise");
-   269  0011E6  0E00               	movlw	0
-   270  0011E8  6E07               	movwf	spinMotor@rate+1,c
-   271  0011EA  0E05               	movlw	5
-   272  0011EC  6E06               	movwf	spinMotor@rate,c
-   273  0011EE  0E06               	movlw	low (STR_1+5)
-   274  0011F0  6E08               	movwf	spinMotor@direction,c
-   275  0011F2  0E10               	movlw	high (STR_1+5)
-   276  0011F4  6E09               	movwf	spinMotor@direction+1,c
-   277  0011F6  EC09  F008         	call	_spinMotor	;wreg free
-   278  0011FA  4A0F               	infsnz	wash@i,f,c
-   279  0011FC  2A10               	incf	wash@i+1,f,c
-   280  0011FE                     l912:
-   281  0011FE  500C               	movf	wash@cycle,w,c
-   282  001200  5C0F               	subwf	wash@i,w,c
-   283  001202  5010               	movf	wash@i+1,w,c
-   284  001204  0A80               	xorlw	128
-   285  001206  6E0E               	movwf	??_wash& (0+255),c
-   286  001208  500D               	movf	wash@cycle+1,w,c
-   287  00120A  0A80               	xorlw	128
-   288  00120C  580E               	subwfb	??_wash& (0+255),w,c
-   289  00120E  B0D8               	btfsc	status,0,c
-   290  001210  0012               	return	
-   291  001212  D7E9               	goto	l908
-   292  001214                     __end_of_wash:
+   258 ;; *************** function _spinMotor *****************
+   259 ;; Defined at:
+   260 ;;		line 31 in file "Motor.c"
+   261 ;; Parameters:    Size  Location     Type
+   262 ;;  rate            2    5[COMRAM] int 
+   263 ;;  direction       2    7[COMRAM] int 
+   264 ;; Auto vars:     Size  Location     Type
+   265 ;;  i               2    9[COMRAM] int 
+   266 ;; Return value:  Size  Location     Type
+   267 ;;                  1    wreg      void 
+   268 ;; Registers used:
+   269 ;;		wreg, status,2, status,0, cstack
+   270 ;; Tracked objects:
+   271 ;;		On entry : 0/0
+   272 ;;		On exit  : 0/0
+   273 ;;		Unchanged: 0/0
+   274 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+      +1  BANK12  BANK13  BANK14  BANK15
+   275 ;;      Params:         4       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   276 ;;      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   277 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   278 ;;      Totals:         6       0       0       0       0       0       0       0       0       0       0       0       
+      +0       0       0       0       0
+   279 ;;Total ram usage:        6 bytes
+   280 ;; Hardware stack levels used:    1
+   281 ;; Hardware stack levels required when called:    1
+   282 ;; This function calls:
+   283 ;;		_delay_ms
+   284 ;; This function is called by:
+   285 ;;		_main
+   286 ;;		_wash
+   287 ;;		_dry
+   288 ;; This function uses a non-reentrant model
+   289 ;;
+   290                           
+   291                           	psect	text3
+   292  001012                     __ptext3:
    293                           	opt stack 0
-   294                           tblptru	equ	0xFF8
-   295                           tblptrh	equ	0xFF7
-   296                           status	equ	0xFD8
-   297                           
-   298 ;; *************** function _startMotor *****************
-   299 ;; Defined at:
-   300 ;;		line 22 in file "Motor.c"
-   301 ;; Parameters:    Size  Location     Type
-   302 ;;		None
-   303 ;; Auto vars:     Size  Location     Type
-   304 ;;		None
-   305 ;; Return value:  Size  Location     Type
-   306 ;;                  1    wreg      void 
-   307 ;; Registers used:
-   308 ;;		wreg, status,2
-   309 ;; Tracked objects:
-   310 ;;		On entry : 0/0
-   311 ;;		On exit  : 0/0
-   312 ;;		Unchanged: 0/0
-   313 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
-      +1  BANK12  BANK13  BANK14  BANK15
-   314 ;;      Params:         0       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0       0
-   315 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0       0
-   316 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0       0
-   317 ;;      Totals:         0       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0       0
-   318 ;;Total ram usage:        0 bytes
-   319 ;; Hardware stack levels used:    1
-   320 ;; This function calls:
-   321 ;;		Nothing
-   322 ;; This function is called by:
-   323 ;;		_main
-   324 ;; This function uses a non-reentrant model
-   325 ;;
+   294  001012                     _spinMotor:
+   295                           	opt stack 29
+   296                           
+   297                           ;Motor.c: 32: int i = 0;
+   298                           
+   299                           ;incstack = 0
+   300  001012  0E00               	movlw	0
+   301  001014  6E0B               	movwf	spinMotor@i+1,c
+   302  001016  0E00               	movlw	0
+   303  001018  6E0A               	movwf	spinMotor@i,c
+   304  00101A                     l851:
+   305                           
+   306                           ;Motor.c: 33: for (; i < 100; i++) {
+   307  00101A  BE0B               	btfsc	spinMotor@i+1,7,c
+   308  00101C  D006               	goto	l855
+   309  00101E  500B               	movf	spinMotor@i+1,w,c
+   310  001020  E160               	bnz	l34
+   311  001022  0E64               	movlw	100
+   312  001024  5C0A               	subwf	spinMotor@i,w,c
+   313  001026  B0D8               	btfsc	status,0,c
+   314  001028  0012               	return	
+   315  00102A                     l855:
+   316                           
+   317                           ;Motor.c: 34: if (direction == 0 ){
+   318  00102A  5008               	movf	spinMotor@direction,w,c
+   319  00102C  1009               	iorwf	spinMotor@direction+1,w,c
+   320  00102E  A4D8               	btfss	status,2,c
+   321  001030  D029               	goto	l871
+   322                           
+   323                           ;Motor.c: 35: PORTD = 0b00000011;
+   324  001032  0E03               	movlw	3
+   325  001034  6E83               	movwf	3971,c	;volatile
    326                           
-   327                           	psect	text2
-   328  0012B4                     __ptext2:
-   329                           	opt stack 0
-   330  0012B4                     _startMotor:
-   331                           	opt stack 30
-   332                           
-   333                           ;Motor.c: 23: TRISD = 0x00;
-   334                           
-   335                           ;incstack = 0
-   336  0012B4  0E00               	movlw	0
-   337  0012B6  6E95               	movwf	3989,c	;volatile
-   338  0012B8  0012               	return		;funcret
-   339  0012BA                     __end_of_startMotor:
-   340                           	opt stack 0
-   341                           tblptru	equ	0xFF8
-   342                           tblptrh	equ	0xFF7
-   343                           status	equ	0xFD8
+   327                           ;Motor.c: 36: delay_ms(rate);
+   328  001036  C006  F001         	movff	spinMotor@rate,delay_ms@x
+   329  00103A  C007  F002         	movff	spinMotor@rate+1,delay_ms@x+1
+   330  00103E  EC72  F008         	call	_delay_ms	;wreg free
+   331                           
+   332                           ;Motor.c: 37: PORTD = 0b00000110;
+   333  001042  0E06               	movlw	6
+   334  001044  6E83               	movwf	3971,c	;volatile
+   335                           
+   336                           ;Motor.c: 38: delay_ms(rate);
+   337  001046  C006  F001         	movff	spinMotor@rate,delay_ms@x
+   338  00104A  C007  F002         	movff	spinMotor@rate+1,delay_ms@x+1
+   339  00104E  EC72  F008         	call	_delay_ms	;wreg free
+   340                           
+   341                           ;Motor.c: 39: PORTD = 0b00001100;
+   342  001052  0E0C               	movlw	12
+   343  001054  6E83               	movwf	3971,c	;volatile
    344                           
-   345 ;; *************** function _rinse *****************
-   346 ;; Defined at:
-   347 ;;		line 88 in file "Motor.c"
-   348 ;; Parameters:    Size  Location     Type
-   349 ;;  cycle           2    7[COMRAM] int 
-   350 ;; Auto vars:     Size  Location     Type
-   351 ;;  i               2   10[COMRAM] int 
-   352 ;; Return value:  Size  Location     Type
-   353 ;;                  1    wreg      void 
-   354 ;; Registers used:
-   355 ;;		wreg, status,2, status,0, cstack
-   356 ;; Tracked objects:
-   357 ;;		On entry : 0/0
-   358 ;;		On exit  : 0/0
-   359 ;;		Unchanged: 0/0
-   360 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
-      +1  BANK12  BANK13  BANK14  BANK15
-   361 ;;      Params:         2       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0       0
-   362 ;;      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0       0
-   363 ;;      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0       0
-   364 ;;      Totals:         5       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0       0
-   365 ;;Total ram usage:        5 bytes
-   366 ;; Hardware stack levels used:    1
-   367 ;; Hardware stack levels required when called:    2
-   368 ;; This function calls:
-   369 ;;		_oscillateMotor
-   370 ;; This function is called by:
-   371 ;;		_main
-   372 ;; This function uses a non-reentrant model
-   373 ;;
-   374                           
-   375                           	psect	text3
-   376  00124C                     __ptext3:
-   377                           	opt stack 0
-   378  00124C                     _rinse:
-   379                           	opt stack 28
-   380                           
-   381                           ;Motor.c: 89: for (int i = 0; i < cycle; i++) {
-   382                           
-   383                           ;incstack = 0
-   384  00124C  0E00               	movlw	0
-   385  00124E  6E0C               	movwf	rinse@i+1,c
-   386  001250  0E00               	movlw	0
-   387  001252  6E0B               	movwf	rinse@i,c
-   388  001254  D008               	goto	l904
-   389  001256                     l900:
+   345                           ;Motor.c: 40: delay_ms(rate);
+   346  001056  C006  F001         	movff	spinMotor@rate,delay_ms@x
+   347  00105A  C007  F002         	movff	spinMotor@rate+1,delay_ms@x+1
+   348  00105E  EC72  F008         	call	_delay_ms	;wreg free
+   349                           
+   350                           ;Motor.c: 41: PORTD = 0b00001001;
+   351  001062  0E09               	movlw	9
+   352  001064  6E83               	movwf	3971,c	;volatile
+   353                           
+   354                           ;Motor.c: 42: delay_ms(rate);
+   355  001066  C006  F001         	movff	spinMotor@rate,delay_ms@x
+   356  00106A  C007  F002         	movff	spinMotor@rate+1,delay_ms@x+1
+   357  00106E  EC72  F008         	call	_delay_ms	;wreg free
+   358                           
+   359                           ;Motor.c: 43: PORTD = 0b00000011;
+   360  001072  0E03               	movlw	3
+   361  001074  6E83               	movwf	3971,c	;volatile
+   362                           
+   363                           ;Motor.c: 44: delay_ms(rate);
+   364  001076  C006  F001         	movff	spinMotor@rate,delay_ms@x
+   365  00107A  C007  F002         	movff	spinMotor@rate+1,delay_ms@x+1
+   366  00107E  EC72  F008         	call	_delay_ms	;wreg free
+   367                           
+   368                           ;Motor.c: 45: }
+   369  001082  D02C               	goto	l887
+   370  001084                     l871:
+   371                           
+   372                           ;Motor.c: 46: else if (direction == 1){
+   373  001084  0408               	decf	spinMotor@direction,w,c
+   374  001086  1009               	iorwf	spinMotor@direction+1,w,c
+   375  001088  A4D8               	btfss	status,2,c
+   376  00108A  D028               	goto	l887
+   377                           
+   378                           ;Motor.c: 47: PORTD = 0b00001001;
+   379  00108C  0E09               	movlw	9
+   380  00108E  6E83               	movwf	3971,c	;volatile
+   381                           
+   382                           ;Motor.c: 48: delay_ms(rate);
+   383  001090  C006  F001         	movff	spinMotor@rate,delay_ms@x
+   384  001094  C007  F002         	movff	spinMotor@rate+1,delay_ms@x+1
+   385  001098  EC72  F008         	call	_delay_ms	;wreg free
+   386                           
+   387                           ;Motor.c: 49: PORTD = 0b00001100;
+   388  00109C  0E0C               	movlw	12
+   389  00109E  6E83               	movwf	3971,c	;volatile
    390                           
-   391                           ;Motor.c: 90: oscillateMotor(50);
-   392  001256  0E00               	movlw	0
-   393  001258  6E07               	movwf	oscillateMotor@rate+1,c
-   394  00125A  0E32               	movlw	50
-   395  00125C  6E06               	movwf	oscillateMotor@rate,c
-   396  00125E  EC77  F008         	call	_oscillateMotor	;wreg free
-   397  001262  4A0B               	infsnz	rinse@i,f,c
-   398  001264  2A0C               	incf	rinse@i+1,f,c
-   399  001266                     l904:
-   400  001266  5008               	movf	rinse@cycle,w,c
-   401  001268  5C0B               	subwf	rinse@i,w,c
-   402  00126A  500C               	movf	rinse@i+1,w,c
-   403  00126C  0A80               	xorlw	128
-   404  00126E  6E0A               	movwf	??_rinse& (0+255),c
-   405  001270  5009               	movf	rinse@cycle+1,w,c
-   406  001272  0A80               	xorlw	128
-   407  001274  580A               	subwfb	??_rinse& (0+255),w,c
-   408  001276  B0D8               	btfsc	status,0,c
-   409  001278  0012               	return	
-   410  00127A  D7ED               	goto	l900
-   411  00127C                     __end_of_rinse:
-   412                           	opt stack 0
-   413                           tblptru	equ	0xFF8
-   414                           tblptrh	equ	0xFF7
-   415                           status	equ	0xFD8
-   416                           
-   417 ;; *************** function _oscillateMotor *****************
-   418 ;; Defined at:
-   419 ;;		line 60 in file "Motor.c"
-   420 ;; Parameters:    Size  Location     Type
-   421 ;;  rate            2    5[COMRAM] int 
-   422 ;; Auto vars:     Size  Location     Type
-   423 ;;		None
-   424 ;; Return value:  Size  Location     Type
-   425 ;;                  1    wreg      void 
-   426 ;; Registers used:
-   427 ;;		wreg, status,2, status,0, cstack
-   428 ;; Tracked objects:
-   429 ;;		On entry : 0/0
-   430 ;;		On exit  : 0/0
-   431 ;;		Unchanged: 0/0
-   432 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
+   391                           ;Motor.c: 50: delay_ms(rate);
+   392  0010A0  C006  F001         	movff	spinMotor@rate,delay_ms@x
+   393  0010A4  C007  F002         	movff	spinMotor@rate+1,delay_ms@x+1
+   394  0010A8  EC72  F008         	call	_delay_ms	;wreg free
+   395                           
+   396                           ;Motor.c: 51: PORTD = 0b00000110;
+   397  0010AC  0E06               	movlw	6
+   398  0010AE  6E83               	movwf	3971,c	;volatile
+   399                           
+   400                           ;Motor.c: 52: delay_ms(rate);
+   401  0010B0  C006  F001         	movff	spinMotor@rate,delay_ms@x
+   402  0010B4  C007  F002         	movff	spinMotor@rate+1,delay_ms@x+1
+   403  0010B8  EC72  F008         	call	_delay_ms	;wreg free
+   404                           
+   405                           ;Motor.c: 53: PORTD = 0b00000011;
+   406  0010BC  0E03               	movlw	3
+   407  0010BE  6E83               	movwf	3971,c	;volatile
+   408                           
+   409                           ;Motor.c: 54: delay_ms(rate);
+   410  0010C0  C006  F001         	movff	spinMotor@rate,delay_ms@x
+   411  0010C4  C007  F002         	movff	spinMotor@rate+1,delay_ms@x+1
+   412  0010C8  EC72  F008         	call	_delay_ms	;wreg free
+   413                           
+   414                           ;Motor.c: 55: PORTD = 0b00001001;
+   415  0010CC  0E09               	movlw	9
+   416  0010CE  6E83               	movwf	3971,c	;volatile
+   417                           
+   418                           ;Motor.c: 56: delay_ms(rate);
+   419  0010D0  C006  F001         	movff	spinMotor@rate,delay_ms@x
+   420  0010D4  C007  F002         	movff	spinMotor@rate+1,delay_ms@x+1
+   421  0010D8  EC72  F008         	call	_delay_ms	;wreg free
+   422  0010DC                     l887:
+   423  0010DC  4A0A               	infsnz	spinMotor@i,f,c
+   424  0010DE  2A0B               	incf	spinMotor@i+1,f,c
+   425  0010E0  D79C               	goto	l851
+   426  0010E2                     l34:
+   427  0010E2  0012               	return		;funcret
+   428  0010E4                     __end_of_spinMotor:
+   429                           	opt stack 0
+   430                           tblptru	equ	0xFF8
+   431                           tblptrh	equ	0xFF7
+   432                           status	equ	0xFD8
+   433                           
+   434 ;; *************** function _delay_ms *****************
+   435 ;; Defined at:
+   436 ;;		line 4 in file "delay.c"
+   437 ;; Parameters:    Size  Location     Type
+   438 ;;  x               2    0[COMRAM] int 
+   439 ;; Auto vars:     Size  Location     Type
+   440 ;;  i               2    3[COMRAM] int 
+   441 ;; Return value:  Size  Location     Type
+   442 ;;                  1    wreg      void 
+   443 ;; Registers used:
+   444 ;;		wreg, status,2, status,0
+   445 ;; Tracked objects:
+   446 ;;		On entry : 0/0
+   447 ;;		On exit  : 0/0
+   448 ;;		Unchanged: 0/0
+   449 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
       +1  BANK12  BANK13  BANK14  BANK15
-   433 ;;      Params:         2       0       0       0       0       0       0       0       0       0       0       0       
+   450 ;;      Params:         2       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   434 ;;      Locals:         0       0       0       0       0       0       0       0       0       0       0       0       
+   451 ;;      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   435 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
+   452 ;;      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   436 ;;      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       
+   453 ;;      Totals:         5       0       0       0       0       0       0       0       0       0       0       0       
       +0       0       0       0       0
-   437 ;;Total ram usage:        2 bytes
-   438 ;; Hardware stack levels used:    1
-   439 ;; Hardware stack levels required when called:    1
-   440 ;; This function calls:
-   441 ;;		_delay_us
-   442 ;; This function is called by:
-   443 ;;		_rinse
-   444 ;;		_main
-   445 ;; This function uses a non-reentrant model
-   446 ;;
-   447                           
-   448                           	psect	text4
-   449  0010EE                     __ptext4:
-   450                           	opt stack 0
-   451  0010EE                     _oscillateMotor:
-   452                           	opt stack 28
-   453                           
-   454                           ;Motor.c: 63: PORTD = 0b00000011;
-   455                           
-   456                           ;incstack = 0
-   457  0010EE  0E03               	movlw	3
-   458  0010F0  6E83               	movwf	3971,c	;volatile
-   459                           
-   460                           ;Motor.c: 64: delay_us(rate);
-   461  0010F2  C006  F001         	movff	oscillateMotor@rate,delay_us@x
-   462  0010F6  C007  F002         	movff	oscillateMotor@rate+1,delay_us@x+1
-   463  0010FA  EC3E  F009         	call	_delay_us	;wreg free
-   464                           
-   465                           ;Motor.c: 65: PORTD = 0b00000110;
-   466  0010FE  0E06               	movlw	6
-   467  001100  6E83               	movwf	3971,c	;volatile
-   468                           
-   469                           ;Motor.c: 66: delay_us(rate);
-   470  001102  C006  F001         	movff	oscillateMotor@rate,delay_us@x
-   471  001106  C007  F002         	movff	oscillateMotor@rate+1,delay_us@x+1
-   472  00110A  EC3E  F009         	call	_delay_us	;wreg free
-   473                           
-   474                           ;Motor.c: 67: PORTD = 0b00001100;
-   475  00110E  0E0C               	movlw	12
-   476  001110  6E83               	movwf	3971,c	;volatile
-   477                           
-   478                           ;Motor.c: 68: delay_us(rate);
-   479  001112  C006  F001         	movff	oscillateMotor@rate,delay_us@x
-   480  001116  C007  F002         	movff	oscillateMotor@rate+1,delay_us@x+1
-   481  00111A  EC3E  F009         	call	_delay_us	;wreg free
-   482                           
-   483                           ;Motor.c: 69: PORTD = 0b00001001;
-   484  00111E  0E09               	movlw	9
-   485  001120  6E83               	movwf	3971,c	;volatile
-   486                           
-   487                           ;Motor.c: 70: delay_us(rate);
-   488  001122  C006  F001         	movff	oscillateMotor@rate,delay_us@x
-   489  001126  C007  F002         	movff	oscillateMotor@rate+1,delay_us@x+1
-   490  00112A  EC3E  F009         	call	_delay_us	;wreg free
-   491                           
-   492                           ;Motor.c: 71: PORTD = 0b00000011;
-   493  00112E  0E03               	movlw	3
-   494  001130  6E83               	movwf	3971,c	;volatile
-   495                           
-   496                           ;Motor.c: 72: delay_us(rate);
-   497  001132  C006  F001         	movff	oscillateMotor@rate,delay_us@x
-   498  001136  C007  F002         	movff	oscillateMotor@rate+1,delay_us@x+1
-   499  00113A  EC3E  F009         	call	_delay_us	;wreg free
-   500                           
-   501                           ;Motor.c: 75: PORTD = 0b00001001;
-   502  00113E  0E09               	movlw	9
-   503  001140  6E83               	movwf	3971,c	;volatile
-   504                           
-   505                           ;Motor.c: 76: delay_us(rate);
-   506  001142  C006  F001         	movff	oscillateMotor@rate,delay_us@x
-   507  001146  C007  F002         	movff	oscillateMotor@rate+1,delay_us@x+1
-   508  00114A  EC3E  F009         	call	_delay_us	;wreg free
-   509                           
-   510                           ;Motor.c: 77: PORTD = 0b00001100;
-   511  00114E  0E0C               	movlw	12
-   512  001150  6E83               	movwf	3971,c	;volatile
-   513                           
-   514                           ;Motor.c: 78: delay_us(rate);
-   515  001152  C006  F001         	movff	oscillateMotor@rate,delay_us@x
-   516  001156  C007  F002         	movff	oscillateMotor@rate+1,delay_us@x+1
-   517  00115A  EC3E  F009         	call	_delay_us	;wreg free
-   518                           
-   519                           ;Motor.c: 79: PORTD = 0b00000110;
-   520  00115E  0E06               	movlw	6
-   521  001160  6E83               	movwf	3971,c	;volatile
-   522                           
-   523                           ;Motor.c: 80: delay_us(rate);
-   524  001162  C006  F001         	movff	oscillateMotor@rate,delay_us@x
-   525  001166  C007  F002         	movff	oscillateMotor@rate+1,delay_us@x+1
-   526  00116A  EC3E  F009         	call	_delay_us	;wreg free
-   527                           
-   528                           ;Motor.c: 81: PORTD = 0b00000011;
-   529  00116E  0E03               	movlw	3
-   530  001170  6E83               	movwf	3971,c	;volatile
-   531                           
-   532                           ;Motor.c: 82: delay_us(rate);
-   533  001172  C006  F001         	movff	oscillateMotor@rate,delay_us@x
-   534  001176  C007  F002         	movff	oscillateMotor@rate+1,delay_us@x+1
-   535  00117A  EC3E  F009         	call	_delay_us	;wreg free
-   536                           
-   537                           ;Motor.c: 83: PORTD = 0b00001001;
-   538  00117E  0E09               	movlw	9
-   539  001180  6E83               	movwf	3971,c	;volatile
-   540                           
-   541                           ;Motor.c: 84: delay_us(rate);
-   542  001182  C006  F001         	movff	oscillateMotor@rate,delay_us@x
-   543  001186  C007  F002         	movff	oscillateMotor@rate+1,delay_us@x+1
-   544  00118A  EC3E  F009         	call	_delay_us	;wreg free
-   545  00118E  0012               	return		;funcret
-   546  001190                     __end_of_oscillateMotor:
-   547                           	opt stack 0
-   548                           tblptru	equ	0xFF8
-   549                           tblptrh	equ	0xFF7
-   550                           status	equ	0xFD8
-   551                           
-   552 ;; *************** function _dry *****************
-   553 ;; Defined at:
-   554 ;;		line 100 in file "Motor.c"
-   555 ;; Parameters:    Size  Location     Type
-   556 ;;  cycle           2   11[COMRAM] int 
-   557 ;; Auto vars:     Size  Location     Type
-   558 ;;  i               2   14[COMRAM] int 
-   559 ;; Return value:  Size  Location     Type
-   560 ;;                  1    wreg      void 
-   561 ;; Registers used:
-   562 ;;		wreg, status,2, status,0, cstack
-   563 ;; Tracked objects:
-   564 ;;		On entry : 0/0
-   565 ;;		On exit  : 0/0
-   566 ;;		Unchanged: 0/0
-   567 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
-      +1  BANK12  BANK13  BANK14  BANK15
-   568 ;;      Params:         2       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0       0
-   569 ;;      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0       0
-   570 ;;      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0       0
-   571 ;;      Totals:         5       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0       0
-   572 ;;Total ram usage:        5 bytes
-   573 ;; Hardware stack levels used:    1
-   574 ;; Hardware stack levels required when called:    2
-   575 ;; This function calls:
-   576 ;;		_spinMotor
-   577 ;; This function is called by:
-   578 ;;		_main
-   579 ;; This function uses a non-reentrant model
-   580 ;;
-   581                           
-   582                           	psect	text5
-   583  001214                     __ptext5:
-   584                           	opt stack 0
-   585  001214                     _dry:
-   586                           	opt stack 28
-   587                           
-   588                           ;Motor.c: 101: for (int i = 0; i < cycle; i++) {
-   589                           
-   590                           ;incstack = 0
-   591  001214  0E00               	movlw	0
-   592  001216  6E10               	movwf	dry@i+1,c
-   593  001218  0E00               	movlw	0
-   594  00121A  6E0F               	movwf	dry@i,c
-   595  00121C  D00C               	goto	l920
-   596  00121E                     l916:
-   597                           
-   598                           ;Motor.c: 102: spinMotor(10, "anti_clockwise");
-   599  00121E  0E00               	movlw	0
-   600  001220  6E07               	movwf	spinMotor@rate+1,c
-   601  001222  0E0A               	movlw	10
-   602  001224  6E06               	movwf	spinMotor@rate,c
-   603  001226  0E01               	movlw	low STR_1
-   604  001228  6E08               	movwf	spinMotor@direction,c
-   605  00122A  0E10               	movlw	high STR_1
-   606  00122C  6E09               	movwf	spinMotor@direction+1,c
-   607  00122E  EC09  F008         	call	_spinMotor	;wreg free
-   608  001232  4A0F               	infsnz	dry@i,f,c
-   609  001234  2A10               	incf	dry@i+1,f,c
-   610  001236                     l920:
-   611  001236  500C               	movf	dry@cycle,w,c
-   612  001238  5C0F               	subwf	dry@i,w,c
-   613  00123A  5010               	movf	dry@i+1,w,c
-   614  00123C  0A80               	xorlw	128
-   615  00123E  6E0E               	movwf	??_dry& (0+255),c
-   616  001240  500D               	movf	dry@cycle+1,w,c
-   617  001242  0A80               	xorlw	128
-   618  001244  580E               	subwfb	??_dry& (0+255),w,c
-   619  001246  B0D8               	btfsc	status,0,c
-   620  001248  0012               	return	
-   621  00124A  D7E9               	goto	l916
-   622  00124C                     __end_of_dry:
-   623                           	opt stack 0
-   624                           tblptru	equ	0xFF8
-   625                           tblptrh	equ	0xFF7
-   626                           status	equ	0xFD8
-   627                           
-   628 ;; *************** function _spinMotor *****************
-   629 ;; Defined at:
-   630 ;;		line 31 in file "Motor.c"
-   631 ;; Parameters:    Size  Location     Type
-   632 ;;  rate            2    5[COMRAM] int 
-   633 ;;  direction       2    7[COMRAM] PTR unsigned char 
-   634 ;;		 -> STR_5(10), STR_4(15), STR_3(10), 
-   635 ;; Auto vars:     Size  Location     Type
-   636 ;;  i               2    9[COMRAM] int 
-   637 ;; Return value:  Size  Location     Type
-   638 ;;                  1    wreg      void 
-   639 ;; Registers used:
-   640 ;;		wreg, status,2, status,0, cstack
-   641 ;; Tracked objects:
-   642 ;;		On entry : 0/0
-   643 ;;		On exit  : 0/0
-   644 ;;		Unchanged: 0/0
-   645 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
-      +1  BANK12  BANK13  BANK14  BANK15
-   646 ;;      Params:         4       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0       0
-   647 ;;      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0       0
-   648 ;;      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0       0
-   649 ;;      Totals:         6       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0       0
-   650 ;;Total ram usage:        6 bytes
-   651 ;; Hardware stack levels used:    1
-   652 ;; Hardware stack levels required when called:    1
-   653 ;; This function calls:
-   654 ;;		_delay_us
-   655 ;; This function is called by:
-   656 ;;		_wash
-   657 ;;		_dry
-   658 ;;		_main
-   659 ;; This function uses a non-reentrant model
-   660 ;;
-   661                           
-   662                           	psect	text6
-   663  001012                     __ptext6:
-   664                           	opt stack 0
-   665  001012                     _spinMotor:
-   666                           	opt stack 28
-   667                           
-   668                           ;Motor.c: 32: for (int i = 0; i < 250; i++) {
-   669                           
-   670                           ;incstack = 0
-   671  001012  0E00               	movlw	0
-   672  001014  6E0B               	movwf	spinMotor@i+1,c
-   673  001016  0E00               	movlw	0
-   674  001018  6E0A               	movwf	spinMotor@i,c
-   675  00101A                     l830:
-   676  00101A  BE0B               	btfsc	spinMotor@i+1,7,c
-   677  00101C  D006               	goto	l834
-   678  00101E  500B               	movf	spinMotor@i+1,w,c
-   679  001020  E165               	bnz	l33
-   680  001022  0EFA               	movlw	250
-   681  001024  5C0A               	subwf	spinMotor@i,w,c
-   682  001026  B0D8               	btfsc	status,0,c
-   683  001028  0012               	return	
-   684  00102A                     l834:
-   685                           
-   686                           ;Motor.c: 33: if (direction == "anti_clockwise"){
-   687  00102A  0E01               	movlw	low STR_1
-   688  00102C  1808               	xorwf	spinMotor@direction,w,c
-   689  00102E  E12C               	bnz	l850
-   690  001030  0E10               	movlw	high STR_1
-   691  001032  1809               	xorwf	spinMotor@direction+1,w,c
-   692  001034  A4D8               	btfss	status,2,c
-   693  001036  D028               	goto	l850
-   694                           
-   695                           ;Motor.c: 34: PORTD = 0b00000011;
-   696  001038  0E03               	movlw	3
-   697  00103A  6E83               	movwf	3971,c	;volatile
-   698                           
-   699                           ;Motor.c: 35: delay_us(rate);
-   700  00103C  C006  F001         	movff	spinMotor@rate,delay_us@x
-   701  001040  C007  F002         	movff	spinMotor@rate+1,delay_us@x+1
-   702  001044  EC3E  F009         	call	_delay_us	;wreg free
-   703                           
-   704                           ;Motor.c: 36: PORTD = 0b00000110;
-   705  001048  0E06               	movlw	6
-   706  00104A  6E83               	movwf	3971,c	;volatile
-   707                           
-   708                           ;Motor.c: 37: delay_us(rate);
-   709  00104C  C006  F001         	movff	spinMotor@rate,delay_us@x
-   710  001050  C007  F002         	movff	spinMotor@rate+1,delay_us@x+1
-   711  001054  EC3E  F009         	call	_delay_us	;wreg free
-   712                           
-   713                           ;Motor.c: 38: PORTD = 0b00001100;
-   714  001058  0E0C               	movlw	12
-   715  00105A  6E83               	movwf	3971,c	;volatile
-   716                           
-   717                           ;Motor.c: 39: delay_us(rate);
-   718  00105C  C006  F001         	movff	spinMotor@rate,delay_us@x
-   719  001060  C007  F002         	movff	spinMotor@rate+1,delay_us@x+1
-   720  001064  EC3E  F009         	call	_delay_us	;wreg free
-   721                           
-   722                           ;Motor.c: 40: PORTD = 0b00001001;
-   723  001068  0E09               	movlw	9
-   724  00106A  6E83               	movwf	3971,c	;volatile
-   725                           
-   726                           ;Motor.c: 41: delay_us(rate);
-   727  00106C  C006  F001         	movff	spinMotor@rate,delay_us@x
-   728  001070  C007  F002         	movff	spinMotor@rate+1,delay_us@x+1
-   729  001074  EC3E  F009         	call	_delay_us	;wreg free
-   730                           
-   731                           ;Motor.c: 42: PORTD = 0b00000011;
-   732  001078  0E03               	movlw	3
-   733  00107A  6E83               	movwf	3971,c	;volatile
-   734                           
-   735                           ;Motor.c: 43: delay_us(rate);
-   736  00107C  C006  F001         	movff	spinMotor@rate,delay_us@x
-   737  001080  C007  F002         	movff	spinMotor@rate+1,delay_us@x+1
-   738  001084  EC3E  F009         	call	_delay_us	;wreg free
-   739  001088                     l850:
-   740                           
-   741                           ;Motor.c: 44: }
-   742                           ;Motor.c: 45: if (direction == "clockwise"){
-   743  001088  0E06               	movlw	low (STR_1+5)
-   744  00108A  1808               	xorwf	spinMotor@direction,w,c
-   745  00108C  E12C               	bnz	l866
-   746  00108E  0E10               	movlw	high (STR_1+5)
-   747  001090  1809               	xorwf	spinMotor@direction+1,w,c
-   748  001092  A4D8               	btfss	status,2,c
-   749  001094  D028               	goto	l866
-   750                           
-   751                           ;Motor.c: 46: PORTD = 0b00001001;
-   752  001096  0E09               	movlw	9
-   753  001098  6E83               	movwf	3971,c	;volatile
-   754                           
-   755                           ;Motor.c: 47: delay_us(rate);
-   756  00109A  C006  F001         	movff	spinMotor@rate,delay_us@x
-   757  00109E  C007  F002         	movff	spinMotor@rate+1,delay_us@x+1
-   758  0010A2  EC3E  F009         	call	_delay_us	;wreg free
-   759                           
-   760                           ;Motor.c: 48: PORTD = 0b00001100;
-   761  0010A6  0E0C               	movlw	12
-   762  0010A8  6E83               	movwf	3971,c	;volatile
-   763                           
-   764                           ;Motor.c: 49: delay_us(rate);
-   765  0010AA  C006  F001         	movff	spinMotor@rate,delay_us@x
-   766  0010AE  C007  F002         	movff	spinMotor@rate+1,delay_us@x+1
-   767  0010B2  EC3E  F009         	call	_delay_us	;wreg free
-   768                           
-   769                           ;Motor.c: 50: PORTD = 0b00000110;
-   770  0010B6  0E06               	movlw	6
-   771  0010B8  6E83               	movwf	3971,c	;volatile
-   772                           
-   773                           ;Motor.c: 51: delay_us(rate);
-   774  0010BA  C006  F001         	movff	spinMotor@rate,delay_us@x
-   775  0010BE  C007  F002         	movff	spinMotor@rate+1,delay_us@x+1
-   776  0010C2  EC3E  F009         	call	_delay_us	;wreg free
-   777                           
-   778                           ;Motor.c: 52: PORTD = 0b00000011;
-   779  0010C6  0E03               	movlw	3
-   780  0010C8  6E83               	movwf	3971,c	;volatile
-   781                           
-   782                           ;Motor.c: 53: delay_us(rate);
-   783  0010CA  C006  F001         	movff	spinMotor@rate,delay_us@x
-   784  0010CE  C007  F002         	movff	spinMotor@rate+1,delay_us@x+1
-   785  0010D2  EC3E  F009         	call	_delay_us	;wreg free
-   786                           
-   787                           ;Motor.c: 54: PORTD = 0b00001001;
-   788  0010D6  0E09               	movlw	9
-   789  0010D8  6E83               	movwf	3971,c	;volatile
-   790                           
-   791                           ;Motor.c: 55: delay_us(rate);
-   792  0010DA  C006  F001         	movff	spinMotor@rate,delay_us@x
-   793  0010DE  C007  F002         	movff	spinMotor@rate+1,delay_us@x+1
-   794  0010E2  EC3E  F009         	call	_delay_us	;wreg free
-   795  0010E6                     l866:
-   796  0010E6  4A0A               	infsnz	spinMotor@i,f,c
-   797  0010E8  2A0B               	incf	spinMotor@i+1,f,c
-   798  0010EA  D797               	goto	l830
-   799  0010EC                     l33:
-   800  0010EC  0012               	return		;funcret
-   801  0010EE                     __end_of_spinMotor:
-   802                           	opt stack 0
-   803                           tblptru	equ	0xFF8
-   804                           tblptrh	equ	0xFF7
-   805                           status	equ	0xFD8
-   806                           
-   807 ;; *************** function _delay_us *****************
-   808 ;; Defined at:
-   809 ;;		line 15 in file "delay.c"
-   810 ;; Parameters:    Size  Location     Type
-   811 ;;  x               2    0[COMRAM] int 
-   812 ;; Auto vars:     Size  Location     Type
-   813 ;;  i               2    3[COMRAM] int 
-   814 ;; Return value:  Size  Location     Type
-   815 ;;                  1    wreg      void 
-   816 ;; Registers used:
-   817 ;;		wreg, status,2, status,0
-   818 ;; Tracked objects:
-   819 ;;		On entry : 0/0
-   820 ;;		On exit  : 0/0
-   821 ;;		Unchanged: 0/0
-   822 ;; Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK1
-      +1  BANK12  BANK13  BANK14  BANK15
-   823 ;;      Params:         2       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0       0
-   824 ;;      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0       0
-   825 ;;      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0       0
-   826 ;;      Totals:         5       0       0       0       0       0       0       0       0       0       0       0       
-      +0       0       0       0       0
-   827 ;;Total ram usage:        5 bytes
-   828 ;; Hardware stack levels used:    1
-   829 ;; This function calls:
-   830 ;;		Nothing
-   831 ;; This function is called by:
-   832 ;;		_spinMotor
-   833 ;;		_oscillateMotor
-   834 ;; This function uses a non-reentrant model
-   835 ;;
-   836                           
-   837                           	psect	text7
-   838  00127C                     __ptext7:
-   839                           	opt stack 0
-   840  00127C                     _delay_us:
-   841                           	opt stack 28
-   842                           
-   843                           ;delay.c: 17: for (int i = 0; i < x; i++)
-   844                           
-   845                           ;incstack = 0
-   846  00127C  0E00               	movlw	0
-   847  00127E  6E05               	movwf	delay_us@i+1,c
-   848  001280  0E00               	movlw	0
-   849  001282  6E04               	movwf	delay_us@i,c
-   850  001284  D005               	goto	l826
-   851  001286                     l12:
-   852                           
-   853                           ;delay.c: 18: {
-   854                           ;delay.c: 19: _delay((unsigned long)((1)*(25000000/4000000.0)));
-   855  001286  D000               	nop2		;2 cycle nop
-   856  001288  D000               	nop2		;2 cycle nop
-   857  00128A  D000               	nop2		;2 cycle nop
-   858  00128C  4A04               	infsnz	delay_us@i,f,c
-   859  00128E  2A05               	incf	delay_us@i+1,f,c
-   860  001290                     l826:
-   861  001290  5001               	movf	delay_us@x,w,c
-   862  001292  5C04               	subwf	delay_us@i,w,c
-   863  001294  5005               	movf	delay_us@i+1,w,c
-   864  001296  0A80               	xorlw	128
-   865  001298  6E03               	movwf	??_delay_us& (0+255),c
-   866  00129A  5002               	movf	delay_us@x+1,w,c
-   867  00129C  0A80               	xorlw	128
-   868  00129E  5803               	subwfb	??_delay_us& (0+255),w,c
-   869  0012A0  B0D8               	btfsc	status,0,c
-   870  0012A2  0012               	return	
-   871  0012A4  D7F0               	goto	l12
-   872  0012A6                     __end_of_delay_us:
-   873                           	opt stack 0
-   874                           tblptru	equ	0xFF8
-   875                           tblptrh	equ	0xFF7
-   876                           status	equ	0xFD8
-   877                           tblptru	equ	0xFF8
-   878                           tblptrh	equ	0xFF7
-   879                           status	equ	0xFD8
-   880                           
-   881                           	psect	rparam
-   882  0000                     tblptru	equ	0xFF8
-   883                           tblptrh	equ	0xFF7
-   884                           status	equ	0xFD8
+   454 ;;Total ram usage:        5 bytes
+   455 ;; Hardware stack levels used:    1
+   456 ;; This function calls:
+   457 ;;		Nothing
+   458 ;; This function is called by:
+   459 ;;		_spinMotor
+   460 ;;		_oscillateMotor
+   461 ;; This function uses a non-reentrant model
+   462 ;;
+   463                           
+   464                           	psect	text4
+   465  0010E4                     __ptext4:
+   466                           	opt stack 0
+   467  0010E4                     _delay_ms:
+   468                           	opt stack 29
+   469                           
+   470                           ;delay.c: 6: for (int i = 0; i < x; i++)
+   471                           
+   472                           ;incstack = 0
+   473  0010E4  0E00               	movlw	0
+   474  0010E6  6E05               	movwf	delay_ms@i+1,c
+   475  0010E8  0E00               	movlw	0
+   476  0010EA  6E04               	movwf	delay_ms@i,c
+   477  0010EC  D00A               	goto	l5
+   478  0010EE                     l845:
+   479                           
+   480                           ;delay.c: 7: {
+   481                           ;delay.c: 8: _delay((unsigned long)((1)*(25000000/4000.0)));
+   482  0010EE  0E09               	movlw	9
+   483  0010F0  6E03               	movwf	??_delay_ms& (0+255),c
+   484  0010F2  0E1C               	movlw	28
+   485  0010F4                     u247:
+   486  0010F4  2EE8               	decfsz	wreg,f,c
+   487  0010F6  D7FE               	goto	u247
+   488  0010F8  2E03               	decfsz	??_delay_ms& (0+255),f,c
+   489  0010FA  D7FC               	goto	u247
+   490  0010FC  D000               	nop2	
+   491  0010FE  4A04               	infsnz	delay_ms@i,f,c
+   492  001100  2A05               	incf	delay_ms@i+1,f,c
+   493  001102                     l5:
+   494  001102  5001               	movf	delay_ms@x,w,c
+   495  001104  5C04               	subwf	delay_ms@i,w,c
+   496  001106  5005               	movf	delay_ms@i+1,w,c
+   497  001108  0A80               	xorlw	128
+   498  00110A  6E03               	movwf	??_delay_ms& (0+255),c
+   499  00110C  5002               	movf	delay_ms@x+1,w,c
+   500  00110E  0A80               	xorlw	128
+   501  001110  5803               	subwfb	??_delay_ms& (0+255),w,c
+   502  001112  B0D8               	btfsc	status,0,c
+   503  001114  0012               	return	
+   504  001116  D7EB               	goto	l845
+   505  001118                     __end_of_delay_ms:
+   506                           	opt stack 0
+   507                           tblptru	equ	0xFF8
+   508                           tblptrh	equ	0xFF7
+   509                           wreg	equ	0xFE8
+   510                           status	equ	0xFD8
+   511                           tblptru	equ	0xFF8
+   512                           tblptrh	equ	0xFF7
+   513                           wreg	equ	0xFE8
+   514                           status	equ	0xFD8
+   515                           
+   516                           	psect	rparam
+   517  0000                     tblptru	equ	0xFF8
+   518                           tblptrh	equ	0xFF7
+   519                           wreg	equ	0xFE8
+   520                           status	equ	0xFD8
 
 
 Data Sizes:
@@ -940,7 +561,7 @@ Data Sizes:
 
 Auto Spaces:
     Space          Size  Autos    Used
-    COMRAM           95     16      16
+    COMRAM           95     11      11
     BANK0           160      0       0
     BANK1           256      0       0
     BANK2           256      0       0
@@ -960,19 +581,12 @@ Auto Spaces:
 
 Pointer List with Targets:
 
-    spinMotor@direction	PTR unsigned char  size(2) Largest target is 15
-		 -> STR_5(CODE[10]), STR_4(CODE[15]), STR_3(CODE[10]), 
-
+    None.
 
 Critical Paths under _main in COMRAM
 
-    _main->_dry
-    _main->_wash
-    _wash->_spinMotor
-    _rinse->_oscillateMotor
-    _oscillateMotor->_delay_us
-    _dry->_spinMotor
-    _spinMotor->_delay_us
+    _main->_spinMotor
+    _spinMotor->_delay_ms
 
 Critical Paths under _main in BANK0
 
@@ -1043,66 +657,39 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (0) _main                                                 0     0      0    9738
-                                _dry
-                     _oscillateMotor
-                              _rinse
+ (0) _main                                                 0     0      0    2020
                           _spinMotor
                          _startMotor
-                               _wash
+                          _stopMotor
  ---------------------------------------------------------------------------------
- (1) _wash                                                 5     3      2    2130
-                                             11 COMRAM     5     3      2
-                          _spinMotor
+ (1) _stopMotor                                            0     0      0       0
  ---------------------------------------------------------------------------------
  (1) _startMotor                                           0     0      0       0
  ---------------------------------------------------------------------------------
- (1) _rinse                                                5     3      2    1784
-                                              7 COMRAM     5     3      2
-                     _oscillateMotor
- ---------------------------------------------------------------------------------
- (2) _oscillateMotor                                       2     0      2    1674
-                                              5 COMRAM     2     0      2
-                           _delay_us
- ---------------------------------------------------------------------------------
- (1) _dry                                                  5     3      2    2130
-                                             11 COMRAM     5     3      2
-                          _spinMotor
- ---------------------------------------------------------------------------------
- (2) _spinMotor                                            6     2      4    2020
+ (1) _spinMotor                                            6     2      4    2020
                                               5 COMRAM     6     2      4
-                           _delay_us
+                           _delay_ms
  ---------------------------------------------------------------------------------
- (3) _delay_us                                             5     3      2    1326
+ (2) _delay_ms                                             5     3      2    1326
                                               0 COMRAM     5     3      2
  ---------------------------------------------------------------------------------
- Estimated maximum stack depth 3
+ Estimated maximum stack depth 2
  ---------------------------------------------------------------------------------
 
  Call Graph Graphs:
 
  _main (ROOT)
-   _dry
-     _spinMotor
-       _delay_us
-   _oscillateMotor
-     _delay_us
-   _rinse
-     _oscillateMotor
-       _delay_us
    _spinMotor
-     _delay_us
+     _delay_ms
    _startMotor
-   _wash
-     _spinMotor
-       _delay_us
+   _stopMotor
 
  Address spaces:
 Name               Size   Autos  Total    Cost      Usage
 BITCOMRAM           5F      0       0       0        0.0%
 NULL                 0      0       0       0        0.0%
 CODE                 0      0       0       0        0.0%
-COMRAM              5F     10      10       1       16.8%
+COMRAM              5F      B       B       1       11.6%
 STACK                0      0       0       2        0.0%
 DATA                 0      0       0       3        0.0%
 BITBANK0            A0      0       0       4        0.0%
@@ -1147,41 +734,30 @@ SFR                  0      0       0      40        0.0%
 
 
 Microchip Technology PIC18 Macro Assembler V1.37 build -260352376 
-Symbol Table                                                                                   Sun Feb 02 01:04:47 2020
+Symbol Table                                                                                   Mon Feb 03 15:05:16 2020
 
-                     l12 1286                       l33 10EC                      l900 1256  
-                    l830 101A                      l920 1236                      l904 1266  
-                    l912 11FE                      l826 1290                      l850 1088  
-                    l834 102A                      l916 121E                      l908 11E6  
-                    l866 10E6                      _dry 1214             __CFG_FOSC$HS 000000  
-           __CFG_WDT$OFF 000000                     ?_dry 000C                     STR_1 1001  
-                   STR_2 1006                     STR_3 1006                     STR_4 1001  
-                   STR_5 1006                     _main 1190                     _wash 11DC  
-                   dry@i 000F                     start 0000             ___param_bank 000010  
-                  ??_dry 000E                    ?_main 0001                    ?_wash 000C  
-                  _PORTD 000F83                    _TRISD 000F95                    _rinse 124C  
-                  wash@i 000F                    status 000FD8          __initialization 12A6  
-           __end_of_main 11DC             __end_of_wash 1214                   ??_main 0011  
-                 ??_wash 000E            __activetblptr 000001            spinMotor@rate 0006  
-                 ?_rinse 0008         __end_of_delay_us 12A6           __CFG_XINST$OFF 000000  
-     spinMotor@direction 0008             __mediumconst 0000                   rinse@i 000B  
-                 tblptrh 000FF7                   tblptru 000FF8               __accesstop 0060  
-__end_of__initialization 12A6            ___rparam_used 000001           __pcstackCOMRAM 0001  
-          __end_of_rinse 127C  __size_of_oscillateMotor 00A2                  ??_rinse 000A  
-     __size_of_spinMotor 00DC                ?_delay_us 0001                  __Hparam 0000  
-                __Lparam 0000             __psmallconst 1000                  __pcinit 12A6  
-                __ramtop 1000                  __ptext0 1190                  __ptext1 11DC  
-                __ptext2 12B4                  __ptext3 124C                  __ptext4 10EE  
-                __ptext5 1214                  __ptext6 1012                  __ptext7 127C  
-           __size_of_dry 0038               ??_delay_us 0003     end_of_initialization 12A6  
-      __end_of_spinMotor 10EE           _oscillateMotor 10EE               _startMotor 12B4  
- __end_of_oscillateMotor 1190      start_initialization 12A6              __end_of_dry 124C  
-        ?_oscillateMotor 0006              ?_startMotor 0001        __size_of_delay_us 002A  
-            __smallconst 1000           __size_of_rinse 0030                delay_us@i 0004  
-              delay_us@x 0001               rinse@cycle 0008                _spinMotor 1012  
-    __size_of_startMotor 0006               spinMotor@i 000A                 __Hrparam 0000  
-               __Lrparam 0000             __Lsmallconst 1000               ?_spinMotor 0006  
-               _delay_us 127C            __size_of_main 004C            __size_of_wash 0038  
-       ??_oscillateMotor 0008                wash@cycle 000C                 dry@cycle 000C  
-           ??_startMotor 0001              ??_spinMotor 000A       __end_of_startMotor 12BA  
-     oscillateMotor@rate 0006  
+                      l5 1102                       l34 10E2                      l851 101A  
+                    l845 10EE                      l871 1084                      l855 102A  
+                    l965 111C                      l887 10DC                      u247 10F4  
+                    wreg 000FE8             __CFG_FOSC$HS 000000             __CFG_WDT$OFF 000000  
+                   STR_2 1001                     _main 1118                     start 0000  
+           ___param_bank 000010                    ?_main 0001                    _PORTD 000F83  
+                  _TRISD 000F95                    status 000FD8          __initialization 1136  
+           __end_of_main 1136                   ??_main 000C            __activetblptr 000001  
+          spinMotor@rate 0006         __end_of_delay_ms 1118           __CFG_XINST$OFF 000000  
+     spinMotor@direction 0008             __mediumconst 0000                   tblptrh 000FF7  
+                 tblptru 000FF8               __accesstop 0060  __end_of__initialization 1136  
+          ___rparam_used 000001           __pcstackCOMRAM 0001       __size_of_spinMotor 00D2  
+              ?_delay_ms 0001       __size_of_stopMotor 0008                  __Hparam 0000  
+                __Lparam 0000             __psmallconst 1000                  __pcinit 1136  
+                __ramtop 1000                  __ptext0 1118                  __ptext1 1144  
+                __ptext2 114C                  __ptext3 1012                  __ptext4 10E4  
+             ??_delay_ms 0003     end_of_initialization 1136        __end_of_spinMotor 10E4  
+      __end_of_stopMotor 114C               _startMotor 114C      start_initialization 1136  
+      __size_of_delay_ms 0034              ?_startMotor 0001              __smallconst 1000  
+              delay_ms@i 0004                delay_ms@x 0001                _spinMotor 1012  
+    __size_of_startMotor 0006                _stopMotor 1144               spinMotor@i 000A  
+               __Hrparam 0000                 __Lrparam 0000             __Lsmallconst 1000  
+             ?_spinMotor 0006               ?_stopMotor 0001                 _delay_ms 10E4  
+          __size_of_main 001E             ??_startMotor 0001              ??_spinMotor 000A  
+     __end_of_startMotor 1152              ??_stopMotor 0001  

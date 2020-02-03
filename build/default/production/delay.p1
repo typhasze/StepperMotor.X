@@ -1,13 +1,13 @@
 Version 3.2 HI-TECH Software Intermediate Code
 [v F6518 `(v ~T0 @X0 1 tf1`ul ]
-"157 D:\Personal Items\XC8 C\include\pic18.h
+"157 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic18.h
 [v __delay `JF6518 ~T0 @X0 0 e ]
 [p i __delay ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f97j60.h: 49: extern volatile unsigned char MAADR5 @ 0xE80;
-"51 D:\Personal Items\XC8 C\include\pic18f97j60.h
+"51 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic18f97j60.h
 [; ;pic18f97j60.h: 51: asm("MAADR5 equ 0E80h");
 [; <" MAADR5 equ 0E80h ;# ">
 [; ;pic18f97j60.h: 55: extern volatile unsigned char MAADR6 @ 0xE81;
@@ -6266,81 +6266,79 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;pic18.h: 157: extern __nonreentrant void _delay(unsigned long);
 [; ;pic18.h: 159: extern __nonreentrant void _delaywdt(unsigned long);
 [; ;pic18.h: 161: extern __nonreentrant void _delay3(unsigned char);
-[; ;delay.c: 4: void MSDelay(int x);
-[; ;delay.c: 5: void delay_us(int x);
-"7 delay.c
-[v _MSDelay `(v ~T0 @X0 1 ef1`i ]
-"8
+"4 delay.c
+[v _delay_ms `(v ~T0 @X0 1 ef1`i ]
+"5
 {
-[; ;delay.c: 7: void MSDelay(int x)
-[; ;delay.c: 8: {
-[e :U _MSDelay ]
-"7
+[; ;delay.c: 4: void delay_ms(int x)
+[; ;delay.c: 5: {
+[e :U _delay_ms ]
+"4
 [v _x `i ~T0 @X0 1 r1 ]
-"8
+"5
 [f ]
-[; ;delay.c: 9: for (int i = 0; i < x; i++)
-"9
+[; ;delay.c: 6: for (int i = 0; i < x; i++)
+"6
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
 [e $U 776  ]
-"10
+"7
 [e :U 773 ]
-[; ;delay.c: 10: {
+[; ;delay.c: 7: {
 {
-[; ;delay.c: 11: _delay((unsigned long)((1)*(25000000/4000.0)));
-"11
+[; ;delay.c: 8: _delay((unsigned long)((1)*(25000000/4000.0)));
+"8
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 25000000 `l `d .4000.0 `ul ]
-"12
-}
 "9
+}
+"6
 [e ++ _i -> 1 `i ]
 [e :U 776 ]
 [e $ < _i _x 773  ]
 [e :U 774 ]
-"12
+"9
 }
-[; ;delay.c: 12: }
-[; ;delay.c: 13: }
-"13
+[; ;delay.c: 9: }
+[; ;delay.c: 10: }
+"10
 [e :UE 772 ]
 }
-"15
+"12
 [v _delay_us `(v ~T0 @X0 1 ef1`i ]
-"16
+"13
 {
-[; ;delay.c: 15: void delay_us(int x)
-[; ;delay.c: 16: {
+[; ;delay.c: 12: void delay_us(int x)
+[; ;delay.c: 13: {
 [e :U _delay_us ]
-"15
+"12
 [v _x `i ~T0 @X0 1 r1 ]
-"16
+"13
 [f ]
-[; ;delay.c: 17: for (int i = 0; i < x; i++)
-"17
+[; ;delay.c: 14: for (int i = 0; i < x; i++)
+"14
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
 [e $U 781  ]
-"18
+"15
 [e :U 778 ]
-[; ;delay.c: 18: {
+[; ;delay.c: 15: {
 {
-[; ;delay.c: 19: _delay((unsigned long)((1)*(25000000/4000000.0)));
-"19
+[; ;delay.c: 16: _delay((unsigned long)((1)*(25000000/4000000.0)));
+"16
 [e ( __delay (1 -> * -> -> 1 `i `d / -> -> 25000000 `l `d .4000000.0 `ul ]
-"20
-}
 "17
+}
+"14
 [e ++ _i -> 1 `i ]
 [e :U 781 ]
 [e $ < _i _x 778  ]
 [e :U 779 ]
-"20
+"17
 }
-[; ;delay.c: 20: }
-[; ;delay.c: 21: }
-"21
+[; ;delay.c: 17: }
+[; ;delay.c: 18: }
+"18
 [e :UE 777 ]
 }
