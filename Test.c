@@ -13,12 +13,14 @@ void main(void) {
     startMotor();
     while (1) {    
     spinMotor(5, 0);
-    //rinse(100);
-    //turboDry(100);
-    //oscillateMotor(50);
-    //rinse(5);
-    //wash(5);
-    //dry(10);
+    rinse(100);
+    turboDry(100);
+    oscillateMotor(50, 100);
+    rinse(5);
+    wash(5);
+    dry(10);
+    normalWashMode();
+    quickWashMode();
     stopMotor();
     }
 }

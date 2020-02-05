@@ -6,12 +6,13 @@
 #pragma config XINST = OFF
 #pragma config FOSC = HS
 #pragma config WDT = OFF
-#define steps 100
+#define steps 200
 
 // Going to left is Clockwise
 // Going to Right is Anti Clockwise
 // 0 = CW | 1 = AW
 // Everything will be done in full-drive (highest torque)
+// 100 step is about 180 degree
 
 void startMotor() {
     TRISD = 0;       // Setting PortD to Output
@@ -19,7 +20,6 @@ void startMotor() {
 
 void stopMotor() {
     PORTD = 0x00;       // Clearing bits in Port D;
-    TRISD = 0xFF;       // Setting PORTD to Input 
 }
 
 void spinMotor(int rate, int direction) {
@@ -54,7 +54,6 @@ void spinMotor(int rate, int direction) {
 
 void oscillateMotor (int rate, int step) {
     int j = 0;
-    
     // Going Clockwise direction
     for (; j < step ; j ++) {
             PORTD = 0b00000011;
@@ -85,42 +84,45 @@ void oscillateMotor (int rate, int step) {
 }
 
 void rinse (int cycle) {
+    if (cycle == 0) cycle = 10;
     for (int i = 0; i < cycle; i++) {
         oscillateMotor(10, 100);
     }
 }
 
 void wash (int cycle) {
+    if (cycle == 0) cycle = 10;
     for (int i = 0; i < cycle; i++) {
-        spinMotor(5, 0); // Change CW / ACW to 1 /0
+        spinMotor(10, 0); 
     }
 }
 
 void dry (int cycle) {
+    if (cycle == 0) cycle = 10;
     for (int i = 0; i < cycle; i++) {
-        spinMotor(10, 1);
+        spinMotor(7, 1);
     }
 }
 
 void normalWashMode() {
-    // IDK how to start this
+    int cycle = 20;   
+    rinse(cycle);    
+    wash(cycle);   
+    dry(cycle);
 }
 
 void quickWashMode () {
-    // Wtf is this actually
-}
-
-void cottonWashMode () {
-    // omg staph
-}
-
-void allergyWashMode () {
-    // JUST STAPH
+    int cycle = 10;
+    rinse(cycle);    
+    wash(cycle);   
+    turboDry(cycle);
+    
 }
 
 void turboDry(int cycle) {
+    if (cycle == 0) cycle = 10;
      for (int i = 0; i < cycle; i++) {
-        oscillateMotor(2, 120);
+        spinMotor(2, 1);
     }
 }
 
