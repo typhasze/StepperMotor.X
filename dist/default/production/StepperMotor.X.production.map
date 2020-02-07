@@ -2,10 +2,10 @@ Microchip MPLAB XC8 Compiler V1.37 ()
 
 Linker command line:
 
--W-3 --edf=D:\Personal Items\XC8 C\dat\en_msgs.txt -cs \
+-W-3 --edf=C:\Program Files (x86)\Microchip\xc8\v1.37\dat\en_msgs.txt -cs \
   -h+dist/default/production\StepperMotor.X.production.sym \
   --cmf=dist/default/production\StepperMotor.X.production.cmf -z -Q18F97J60 \
-  -oC:\Users\typha\AppData\Local\Temp\s9n4.2 \
+  -oC:\Users\typha\AppData\Local\Temp\sc20.2 \
   -Mdist/default/production/StepperMotor.X.production.map -E1 -ver=XC8 \
   -ASTACK=060h-0e7fh -pstack=STACK -ACODE=00h-01FFF7h -ACONST=00h-01FFF7h \
   -ASMALLCONST=01000h-010FFhx495,01FF00h-01FFF7h \
@@ -26,7 +26,7 @@ Linker command line:
   -pfarbss=FARRAM,fardata=FARRAM,nvFARRAM=FARRAM \
   -pintsave_regs=BIGRAM,bigbss=BIGRAM,bigdata=BIGRAM -pbss=RAM \
   -pidata=CODE,irdata=CODE,ibigdata=CODE,ifardata=CODE -prparam=COMRAM \
-  C:\Users\typha\AppData\Local\Temp\s9n4.obj \
+  C:\Users\typha\AppData\Local\Temp\sc20.obj \
   dist/default/production\StepperMotor.X.production.obj 
 
 Object code version is 3.11
@@ -39,43 +39,39 @@ Call graph: (short form)
 
 
                 Name                               Link     Load   Length Selector   Space Scale
-C:\Users\typha\AppData\Local\Temp\s9n4.obj
+C:\Users\typha\AppData\Local\Temp\sc20.obj
                 end_init                              0        0        4        0       0
                 config                            1FFF8    1FFF8        6    1FFF8       0
 dist/default/production\StepperMotor.X.production.obj
-                text11                            1FC76    1FC76       34     FE3B       0
-                text10                            1FE40    1FE40       D2     FF20       0
-                text9                             1FCAA    1FCAA       48     FE55       0
-                text8                             1FF12    1FF12       E6     FF89       0
-                text7                             1FCF2    1FCF2       48     FE79       0
-                text6                             1FD3A    1FD3A       48     FE9D       0
-                text5                             1FC1A    1FC1A       2E     FE0D       0
-                text4                             1FD82    1FD82       48     FEC1       0
-                text3                             1FC48    1FC48       2E     FE24       0
-                text2                             1FC08    1FC08        6     FE04       0
-                text1                             1FC0E    1FC0E        6     FE07       0
-                text0                             1FDCA    1FDCA       76     FEE5       0
+                text9                             1FD64    1FD64       34     FEB2       0
+                text8                             1FE40    1FE40       D2     FF20       0
+                text7                             1FD98    1FD98       38     FECC       0
+                text6                             1FF12    1FF12       E6     FF89       0
+                text5                             1FDD0    1FDD0       38     FEE8       0
+                text4                             1FE08    1FE08       38     FF04       0
+                text3                             1FD36    1FD36       2E     FE9B       0
+                text2                             1FD14    1FD14        6     FE8A       0
+                text1                             1FD20    1FD20        8     FE90       0
+                text0                             1FD28    1FD28        E     FE94       0
                 cstackCOMRAM                          1        1       13        1       1
-                cinit                             1FC14    1FC14        6     FE0A       0
+                cinit                             1FD1A    1FD1A        6     FE8D       0
 
 TOTAL           Name                               Link     Load   Length     Space
         CLASS   STACK          
 
         CLASS   CODE           
                 end_init                              0        0        4         0
-                text11                            1FC76    1FC76       34         0
-                text10                            1FE40    1FE40       D2         0
-                text9                             1FCAA    1FCAA       48         0
-                text8                             1FF12    1FF12       E6         0
-                text7                             1FCF2    1FCF2       48         0
-                text6                             1FD3A    1FD3A       48         0
-                text5                             1FC1A    1FC1A       2E         0
-                text4                             1FD82    1FD82       48         0
-                text3                             1FC48    1FC48       2E         0
-                text2                             1FC08    1FC08        6         0
-                text1                             1FC0E    1FC0E        6         0
-                text0                             1FDCA    1FDCA       76         0
-                cinit                             1FC14    1FC14        6         0
+                text9                             1FD64    1FD64       34         0
+                text8                             1FE40    1FE40       D2         0
+                text7                             1FD98    1FD98       38         0
+                text6                             1FF12    1FF12       E6         0
+                text5                             1FDD0    1FDD0       38         0
+                text4                             1FE08    1FE08       38         0
+                text3                             1FD36    1FD36       2E         0
+                text2                             1FD14    1FD14        6         0
+                text1                             1FD20    1FD20        8         0
+                text0                             1FD28    1FD28        E         0
+                cinit                             1FD1A    1FD1A        6         0
 
         CLASS   CONST          
 
@@ -139,19 +135,17 @@ SEGMENTS        Name                           Load    Length   Top    Selector 
 
                 reset_vec                      000000  000004  000004         0       0  CODE    
                 cstackCOMRAM                   000001  000013  000014         1       1  COMRAM  
-                text2                          01FC08  000006  01FC0E      FE04       0  CODE    
-                text1                          01FC0E  000006  01FC14      FE07       0  CODE    
-                cinit                          01FC14  000006  01FC1A      FE0A       0  CODE    
-                text5                          01FC1A  00002E  01FC48      FE0D       0  CODE    
-                text3                          01FC48  00002E  01FC76      FE24       0  CODE    
-                text11                         01FC76  000034  01FCAA      FE3B       0  CODE    
-                text9                          01FCAA  000048  01FCF2      FE55       0  CODE    
-                text7                          01FCF2  000048  01FD3A      FE79       0  CODE    
-                text6                          01FD3A  000048  01FD82      FE9D       0  CODE    
-                text4                          01FD82  000048  01FDCA      FEC1       0  CODE    
-                text0                          01FDCA  000076  01FE40      FEE5       0  CODE    
-                text10                         01FE40  0000D2  01FF12      FF20       0  CODE    
-                text8                          01FF12  0000E6  01FFF8      FF89       0  CODE    
+                text2                          01FD14  000006  01FD1A      FE8A       0  CODE    
+                cinit                          01FD1A  000006  01FD20      FE8D       0  CODE    
+                text1                          01FD20  000008  01FD28      FE90       0  CODE    
+                text0                          01FD28  00000E  01FD36      FE94       0  CODE    
+                text3                          01FD36  00002E  01FD64      FE9B       0  CODE    
+                text9                          01FD64  000034  01FD98      FEB2       0  CODE    
+                text7                          01FD98  000038  01FDD0      FECC       0  CODE    
+                text5                          01FDD0  000038  01FE08      FEE8       0  CODE    
+                text4                          01FE08  000038  01FE40      FF04       0  CODE    
+                text8                          01FE40  0000D2  01FF12      FF20       0  CODE    
+                text6                          01FF12  0000E6  01FFF8      FF89       0  CODE    
                 config                         01FFF8  000006  01FFFE     1FFF8       0  CONFIG  
 
 
@@ -176,16 +170,16 @@ UNUSED ADDRESS RANGES
         BANK9            00900-009FF             100
         BIGRAM           00014-00E7F             E6C
                          00F00-00F5F              60
-        CODE             00004-1FC07           1FC04
+        CODE             00004-1FD13           1FD10
         COMRAM           00014-0005F              4C
-        CONST            00004-1FC07           1FC04
+        CONST            00004-1FD13           1FD10
         MEDIUMCONST      01000-0FFFF            F000
-                         11000-1FC07            EC08
+                         11000-1FD13            ED14
         RAM              00060-00E7F             100
                          00F00-00F5F              60
         SFR              00E80-00EFF              80
                          00F60-00FFF              A0
-        SMALLCONST       01000-1FC07             100
+        SMALLCONST       01000-1FD13             100
         STACK            00060-00E7F             E20
 
                                   Symbol Table
@@ -264,8 +258,6 @@ __Htemp                  temp          00000
 __Htext                  text          00000
 __Htext0                 text0         00000
 __Htext1                 text1         00000
-__Htext10                text10        00000
-__Htext11                text11        00000
 __Htext2                 text2         00000
 __Htext3                 text3         00000
 __Htext4                 text4         00000
@@ -343,8 +335,6 @@ __Ltemp                  temp          00000
 __Ltext                  text          00000
 __Ltext0                 text0         00000
 __Ltext1                 text1         00000
-__Ltext10                text10        00000
-__Ltext11                text11        00000
 __Ltext2                 text2         00000
 __Ltext3                 text3         00000
 __Ltext4                 text4         00000
@@ -364,66 +354,58 @@ ___rparam_used           (abs)         00001
 ___sp                    stack         00000
 __accesstop              (abs)         00060
 __activetblptr           (abs)         00000
-__end_of__initialization cinit         1FC14
-__end_of_delay_ms        text11        1FCAA
-__end_of_dry             text9         1FCF2
-__end_of_main            text0         1FE40
-__end_of_normalWashMode  text5         1FC48
-__end_of_oscillateMotor  text8         1FFF8
-__end_of_quickWashMode   text3         1FC76
-__end_of_rinse           text7         1FD3A
-__end_of_spinMotor       text10        1FF12
-__end_of_startMotor      text2         1FC0E
-__end_of_stopMotor       text1         1FC14
-__end_of_turboDry        text4         1FDCA
-__end_of_wash            text6         1FD82
-__initialization         cinit         1FC14
+__end_of__initialization cinit         1FD1A
+__end_of_delay_ms        text9         1FD98
+__end_of_dry             text7         1FDD0
+__end_of_main            text0         1FD36
+__end_of_normalWashMode  text3         1FD64
+__end_of_oscillateMotor  text6         1FFF8
+__end_of_rinse           text5         1FE08
+__end_of_spinMotor       text8         1FF12
+__end_of_startMotor      text2         1FD1A
+__end_of_stopMotor       text1         1FD28
+__end_of_wash            text4         1FE40
+__initialization         cinit         1FD1A
 __mediumconst            mediumconst   00000
-__pcinit                 cinit         1FC14
+__pcinit                 cinit         1FD1A
 __pcstackCOMRAM          cstackCOMRAM  00001
-__ptext0                 text0         1FDCA
-__ptext1                 text1         1FC0E
-__ptext10                text10        1FE40
-__ptext11                text11        1FC76
-__ptext2                 text2         1FC08
-__ptext3                 text3         1FC48
-__ptext4                 text4         1FD82
-__ptext5                 text5         1FC1A
-__ptext6                 text6         1FD3A
-__ptext7                 text7         1FCF2
-__ptext8                 text8         1FF12
-__ptext9                 text9         1FCAA
+__ptext0                 text0         1FD28
+__ptext1                 text1         1FD20
+__ptext2                 text2         1FD14
+__ptext3                 text3         1FD36
+__ptext4                 text4         1FE08
+__ptext5                 text5         1FDD0
+__ptext6                 text6         1FF12
+__ptext7                 text7         1FD98
+__ptext8                 text8         1FE40
+__ptext9                 text9         1FD64
 __ramtop                 ramtop        01000
 __size_of_delay_ms       (abs)         00000
 __size_of_dry            (abs)         00000
 __size_of_main           (abs)         00000
 __size_of_normalWashMode (abs)         00000
 __size_of_oscillateMotor (abs)         00000
-__size_of_quickWashMode  (abs)         00000
 __size_of_rinse          (abs)         00000
 __size_of_spinMotor      (abs)         00000
 __size_of_startMotor     (abs)         00000
 __size_of_stopMotor      (abs)         00000
-__size_of_turboDry       (abs)         00000
 __size_of_wash           (abs)         00000
 __smallconst             smallconst    00000
-_delay_ms                text11        1FC76
-_dry                     text9         1FCAA
-_main                    text0         1FDCA
-_normalWashMode          text5         1FC1A
-_oscillateMotor          text8         1FF12
-_quickWashMode           text3         1FC48
-_rinse                   text7         1FCF2
-_spinMotor               text10        1FE40
-_startMotor              text2         1FC08
-_stopMotor               text1         1FC0E
-_turboDry                text4         1FD82
-_wash                    text6         1FD3A
+_delay_ms                text9         1FD64
+_dry                     text7         1FD98
+_main                    text0         1FD28
+_normalWashMode          text3         1FD36
+_oscillateMotor          text6         1FF12
+_rinse                   text5         1FDD0
+_spinMotor               text8         1FE40
+_startMotor              text2         1FD14
+_stopMotor               text1         1FD20
+_wash                    text4         1FE08
 delay_ms@i               cstackCOMRAM  00004
 delay_ms@x               cstackCOMRAM  00001
 dry@cycle                cstackCOMRAM  0000C
 dry@i                    cstackCOMRAM  0000F
-end_of_initialization    cinit         1FC14
+end_of_initialization    cinit         1FD1A
 intlevel0                text          00000
 intlevel1                text          00000
 intlevel2                text          00000
@@ -432,7 +414,6 @@ normalWashMode@cycle     cstackCOMRAM  00012
 oscillateMotor@j         cstackCOMRAM  0000B
 oscillateMotor@rate      cstackCOMRAM  00006
 oscillateMotor@step      cstackCOMRAM  00008
-quickWashMode@cycle      cstackCOMRAM  00012
 rinse@cycle              cstackCOMRAM  0000D
 rinse@i                  cstackCOMRAM  00010
 spinMotor@direction      cstackCOMRAM  00008
@@ -441,9 +422,7 @@ spinMotor@rate           cstackCOMRAM  00006
 stackhi                  (abs)         00E7F
 stacklo                  (abs)         00060
 start                    init          00000
-start_initialization     cinit         1FC14
-turboDry@cycle           cstackCOMRAM  0000C
-turboDry@i               cstackCOMRAM  0000F
+start_initialization     cinit         1FD1A
 wash@cycle               cstackCOMRAM  0000C
 wash@i                   cstackCOMRAM  0000F
 
@@ -473,16 +452,9 @@ FUNCTION INFORMATION:
 Total ram usage:        0 bytes
  Hardware stack levels required when called:    4
  This function calls:
-		_dry
 		_normalWashMode
-		_oscillateMotor
-		_quickWashMode
-		_rinse
-		_spinMotor
 		_startMotor
 		_stopMotor
-		_turboDry
-		_wash
  This function is called by:
 		Startup code after reset
  This function uses a non-reentrant model
@@ -546,72 +518,9 @@ Total ram usage:        0 bytes
  This function uses a non-reentrant model
 
 
- *************** function _quickWashMode *****************
- Defined at:
-		line 114 in file "Motor.c"
- Parameters:    Size  Location     Type
-		None
- Auto vars:     Size  Location     Type
-  cycle           2   17[COMRAM] int 
- Return value:  Size  Location     Type
-                  1    wreg      void 
- Registers used:
-		wreg, status,2, status,0, cstack
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
-      Params:         0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Temps:          0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Totals:         2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-Total ram usage:        2 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    3
- This function calls:
-		_rinse
-		_turboDry
-		_wash
- This function is called by:
-		_main
- This function uses a non-reentrant model
-
-
- *************** function _turboDry *****************
- Defined at:
-		line 122 in file "Motor.c"
- Parameters:    Size  Location     Type
-  cycle           2   11[COMRAM] int 
- Auto vars:     Size  Location     Type
-  i               2   14[COMRAM] int 
- Return value:  Size  Location     Type
-                  1    wreg      void 
- Registers used:
-		wreg, status,2, status,0, cstack
- Tracked objects:
-		On entry : 
-		On exit  : 
-		Unchanged: 
- Data sizes:     COMRAM   BANK0   BANK1   BANK2   BANK3   BANK4   BANK5   BANK6   BANK7   BANK8   BANK9  BANK10  BANK11  BANK12  BANK13  BANK14  BANK15
-      Params:         2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Locals:         2       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Temps:          1       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-      Totals:         5       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0       0
-Total ram usage:        5 bytes
- Hardware stack levels used:    1
- Hardware stack levels required when called:    2
- This function calls:
-		_spinMotor
- This function is called by:
-		_quickWashMode
-		_main
- This function uses a non-reentrant model
-
-
  *************** function _normalWashMode *****************
  Defined at:
-		line 107 in file "Motor.c"
+		line 108 in file "Motor.c"
  Parameters:    Size  Location     Type
 		None
  Auto vars:     Size  Location     Type
@@ -643,7 +552,7 @@ Total ram usage:        2 bytes
 
  *************** function _wash *****************
  Defined at:
-		line 93 in file "Motor.c"
+		line 94 in file "Motor.c"
  Parameters:    Size  Location     Type
   cycle           2   11[COMRAM] int 
  Auto vars:     Size  Location     Type
@@ -669,13 +578,12 @@ Total ram usage:        5 bytes
  This function is called by:
 		_normalWashMode
 		_quickWashMode
-		_main
  This function uses a non-reentrant model
 
 
  *************** function _rinse *****************
  Defined at:
-		line 86 in file "Motor.c"
+		line 87 in file "Motor.c"
  Parameters:    Size  Location     Type
   cycle           2   12[COMRAM] int 
  Auto vars:     Size  Location     Type
@@ -701,13 +609,12 @@ Total ram usage:        5 bytes
  This function is called by:
 		_normalWashMode
 		_quickWashMode
-		_main
  This function uses a non-reentrant model
 
 
  *************** function _oscillateMotor *****************
  Defined at:
-		line 55 in file "Motor.c"
+		line 56 in file "Motor.c"
  Parameters:    Size  Location     Type
   rate            2    5[COMRAM] int 
   step            2    7[COMRAM] int 
@@ -733,13 +640,12 @@ Total ram usage:        7 bytes
 		_delay_ms
  This function is called by:
 		_rinse
-		_main
  This function uses a non-reentrant model
 
 
  *************** function _dry *****************
  Defined at:
-		line 100 in file "Motor.c"
+		line 101 in file "Motor.c"
  Parameters:    Size  Location     Type
   cycle           2   11[COMRAM] int 
  Auto vars:     Size  Location     Type
@@ -764,13 +670,12 @@ Total ram usage:        5 bytes
 		_spinMotor
  This function is called by:
 		_normalWashMode
-		_main
  This function uses a non-reentrant model
 
 
  *************** function _spinMotor *****************
  Defined at:
-		line 25 in file "Motor.c"
+		line 26 in file "Motor.c"
  Parameters:    Size  Location     Type
   rate            2    5[COMRAM] int 
   direction       2    7[COMRAM] int 
@@ -798,7 +703,6 @@ Total ram usage:        6 bytes
 		_wash
 		_dry
 		_turboDry
-		_main
  This function uses a non-reentrant model
 
 
@@ -837,31 +741,29 @@ MODULE INFORMATION
 
 Module		Function		Class		Link	Load	Size
 delay.c
-		_delay_ms      		CODE           	1FC76	0000	53
+		_delay_ms      		CODE           	1FD64	0000	53
 
 delay.c estimated size: 53
 
 Motor.c
-		_quickWashMode 		CODE           	1FC48	0000	47
-		_turboDry      		CODE           	1FD82	0000	73
-		_wash          		CODE           	1FD3A	0000	73
-		_stopMotor     		CODE           	1FC0E	0000	7
-		_rinse         		CODE           	1FCF2	0000	73
-		_startMotor    		CODE           	1FC08	0000	7
+		_wash          		CODE           	1FE08	0000	57
+		_stopMotor     		CODE           	1FD20	0000	9
+		_rinse         		CODE           	1FDD0	0000	57
+		_startMotor    		CODE           	1FD14	0000	7
 		_oscillateMotor		CODE           	1FF12	0000	231
-		_dry           		CODE           	1FCAA	0000	73
-		_normalWashMode		CODE           	1FC1A	0000	47
+		_dry           		CODE           	1FD98	0000	57
+		_normalWashMode		CODE           	1FD36	0000	47
 		_spinMotor     		CODE           	1FE40	0000	211
 
-Motor.c estimated size: 842
+Motor.c estimated size: 676
 
 shared
-		__initialization		CODE           	1FC14	0000	1
+		__initialization		CODE           	1FD1A	0000	1
 
 shared estimated size: 1
 
 Test.c
-		_main          		CODE           	1FDCA	0000	119
+		_main          		CODE           	1FD28	0000	15
 
-Test.c estimated size: 119
+Test.c estimated size: 15
 

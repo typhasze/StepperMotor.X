@@ -1,17 +1,17 @@
 Version 3.2 HI-TECH Software Intermediate Code
-"7825 D:\Personal Items\XC8 C\include\pic18f97j60.h
+"7825 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic18f97j60.h
 [v _TRISD `Vuc ~T0 @X0 0 e@3989 ]
 "4789
 [v _PORTD `Vuc ~T0 @X0 0 e@3971 ]
 "4 amt.h
 [v _delay_ms `(v ~T0 @X0 0 ef1`i ]
-"60 Motor.h
+"62 Motor.h
 [v _turboDry `(v ~T0 @X0 0 ef1`i ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f97j60.h: 49: extern volatile unsigned char MAADR5 @ 0xE80;
-"51 D:\Personal Items\XC8 C\include\pic18f97j60.h
+"51 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic18f97j60.h
 [; ;pic18f97j60.h: 51: asm("MAADR5 equ 0E80h");
 [; <" MAADR5 equ 0E80h ;# ">
 [; ;pic18f97j60.h: 55: extern volatile unsigned char MAADR6 @ 0xE81;
@@ -6301,15 +6301,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;stdio.h: 194: extern int sprintf(char *, const char *, ...);
 [; ;stdio.h: 195: extern int printf(const char *, ...);
 [; ;Motor.h: 15: void startMotor();
-[; ;Motor.h: 19: void stopMotor();
-[; ;Motor.h: 23: void spinMotor(int rate, int direction);
-[; ;Motor.h: 31: void oscillateMotor(int rate, int step);
-[; ;Motor.h: 37: void rinse (int cycle);
-[; ;Motor.h: 42: void wash (int cycle);
-[; ;Motor.h: 46: void dry (int cycle);
-[; ;Motor.h: 51: void normalWashMode ();
-[; ;Motor.h: 55: void quickWashMode();
-[; ;Motor.h: 60: void turboDry(int cycle);
+[; ;Motor.h: 20: void stopMotor();
+[; ;Motor.h: 25: void spinMotor(int rate, int direction);
+[; ;Motor.h: 33: void oscillateMotor(int rate, int step);
+[; ;Motor.h: 39: void rinse (int cycle);
+[; ;Motor.h: 44: void wash (int cycle);
+[; ;Motor.h: 48: void dry (int cycle);
+[; ;Motor.h: 53: void normalWashMode ();
+[; ;Motor.h: 57: void quickWashMode();
+[; ;Motor.h: 62: void turboDry(int cycle);
 [; ;amt.h: 4: void delay_ms(int x);
 [; ;amt.h: 5: void delay_us(int x);
 [; ;amt.h: 7: void SPI1init(void);
@@ -6354,420 +6354,403 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;Motor.c: 22: PORTD = 0x00;
 "22
 [e = _PORTD -> -> 0 `i `uc ]
-[; ;Motor.c: 23: }
+[; ;Motor.c: 23: TRISD = 0xFF;
 "23
+[e = _TRISD -> -> 255 `i `uc ]
+[; ;Motor.c: 24: }
+"24
 [e :UE 774 ]
 }
-"25
+"26
 [v _spinMotor `(v ~T0 @X0 1 ef2`i`i ]
 {
-[; ;Motor.c: 25: void spinMotor(int rate, int direction) {
+[; ;Motor.c: 26: void spinMotor(int rate, int direction) {
 [e :U _spinMotor ]
 [v _rate `i ~T0 @X0 1 r1 ]
 [v _direction `i ~T0 @X0 1 r2 ]
 [f ]
-"26
-[v _i `i ~T0 @X0 1 a ]
-[; ;Motor.c: 26: int i = 0;
-[e = _i -> 0 `i ]
-[; ;Motor.c: 27: for (; i < 200; i++) {
 "27
+[v _i `i ~T0 @X0 1 a ]
+[; ;Motor.c: 27: int i = 0;
+[e = _i -> 0 `i ]
+[; ;Motor.c: 28: for (; i < 200; i++) {
+"28
 {
 [e $ < _i -> 200 `i 776  ]
 [e $U 777  ]
 [e :U 776 ]
 {
-[; ;Motor.c: 28: if (direction == 0 ){
-"28
+[; ;Motor.c: 29: if (direction == 0 ){
+"29
 [e $ ! == _direction -> 0 `i 779  ]
 {
-[; ;Motor.c: 29: PORTD = 0b00000011;
-"29
-[e = _PORTD -> -> 3 `i `uc ]
-[; ;Motor.c: 30: delay_ms(rate);
+[; ;Motor.c: 30: PORTD = 0b00000011;
 "30
-[e ( _delay_ms (1 _rate ]
-[; ;Motor.c: 31: PORTD = 0b00000110;
-"31
-[e = _PORTD -> -> 6 `i `uc ]
-[; ;Motor.c: 32: delay_ms(rate);
-"32
-[e ( _delay_ms (1 _rate ]
-[; ;Motor.c: 33: PORTD = 0b00001100;
-"33
-[e = _PORTD -> -> 12 `i `uc ]
-[; ;Motor.c: 34: delay_ms(rate);
-"34
-[e ( _delay_ms (1 _rate ]
-[; ;Motor.c: 35: PORTD = 0b00001001;
-"35
-[e = _PORTD -> -> 9 `i `uc ]
-[; ;Motor.c: 36: delay_ms(rate);
-"36
-[e ( _delay_ms (1 _rate ]
-[; ;Motor.c: 37: PORTD = 0b00000011;
-"37
 [e = _PORTD -> -> 3 `i `uc ]
-[; ;Motor.c: 38: delay_ms(rate);
-"38
+[; ;Motor.c: 31: delay_ms(rate);
+"31
 [e ( _delay_ms (1 _rate ]
+[; ;Motor.c: 32: PORTD = 0b00000110;
+"32
+[e = _PORTD -> -> 6 `i `uc ]
+[; ;Motor.c: 33: delay_ms(rate);
+"33
+[e ( _delay_ms (1 _rate ]
+[; ;Motor.c: 34: PORTD = 0b00001100;
+"34
+[e = _PORTD -> -> 12 `i `uc ]
+[; ;Motor.c: 35: delay_ms(rate);
+"35
+[e ( _delay_ms (1 _rate ]
+[; ;Motor.c: 36: PORTD = 0b00001001;
+"36
+[e = _PORTD -> -> 9 `i `uc ]
+[; ;Motor.c: 37: delay_ms(rate);
+"37
+[e ( _delay_ms (1 _rate ]
+[; ;Motor.c: 38: PORTD = 0b00000011;
+"38
+[e = _PORTD -> -> 3 `i `uc ]
+[; ;Motor.c: 39: delay_ms(rate);
 "39
-}
-[; ;Motor.c: 39: }
-[e $U 780  ]
+[e ( _delay_ms (1 _rate ]
 "40
+}
+[; ;Motor.c: 40: }
+[e $U 780  ]
+"41
 [e :U 779 ]
-[; ;Motor.c: 40: else if (direction == 1){
+[; ;Motor.c: 41: else if (direction == 1){
 [e $ ! == _direction -> 1 `i 781  ]
 {
-[; ;Motor.c: 41: PORTD = 0b00001001;
-"41
-[e = _PORTD -> -> 9 `i `uc ]
-[; ;Motor.c: 42: delay_ms(rate);
+[; ;Motor.c: 42: PORTD = 0b00001001;
 "42
-[e ( _delay_ms (1 _rate ]
-[; ;Motor.c: 43: PORTD = 0b00001100;
-"43
-[e = _PORTD -> -> 12 `i `uc ]
-[; ;Motor.c: 44: delay_ms(rate);
-"44
-[e ( _delay_ms (1 _rate ]
-[; ;Motor.c: 45: PORTD = 0b00000110;
-"45
-[e = _PORTD -> -> 6 `i `uc ]
-[; ;Motor.c: 46: delay_ms(rate);
-"46
-[e ( _delay_ms (1 _rate ]
-[; ;Motor.c: 47: PORTD = 0b00000011;
-"47
-[e = _PORTD -> -> 3 `i `uc ]
-[; ;Motor.c: 48: delay_ms(rate);
-"48
-[e ( _delay_ms (1 _rate ]
-[; ;Motor.c: 49: PORTD = 0b00001001;
-"49
 [e = _PORTD -> -> 9 `i `uc ]
-[; ;Motor.c: 50: delay_ms(rate);
-"50
+[; ;Motor.c: 43: delay_ms(rate);
+"43
 [e ( _delay_ms (1 _rate ]
+[; ;Motor.c: 44: PORTD = 0b00001100;
+"44
+[e = _PORTD -> -> 12 `i `uc ]
+[; ;Motor.c: 45: delay_ms(rate);
+"45
+[e ( _delay_ms (1 _rate ]
+[; ;Motor.c: 46: PORTD = 0b00000110;
+"46
+[e = _PORTD -> -> 6 `i `uc ]
+[; ;Motor.c: 47: delay_ms(rate);
+"47
+[e ( _delay_ms (1 _rate ]
+[; ;Motor.c: 48: PORTD = 0b00000011;
+"48
+[e = _PORTD -> -> 3 `i `uc ]
+[; ;Motor.c: 49: delay_ms(rate);
+"49
+[e ( _delay_ms (1 _rate ]
+[; ;Motor.c: 50: PORTD = 0b00001001;
+"50
+[e = _PORTD -> -> 9 `i `uc ]
+[; ;Motor.c: 51: delay_ms(rate);
 "51
+[e ( _delay_ms (1 _rate ]
+"52
 }
 [e :U 781 ]
-"52
+"53
 [e :U 780 ]
 }
-"27
+"28
 [e ++ _i -> 1 `i ]
 [e $ < _i -> 200 `i 776  ]
 [e :U 777 ]
-"52
+"53
 }
-[; ;Motor.c: 51: }
 [; ;Motor.c: 52: }
 [; ;Motor.c: 53: }
-"53
+[; ;Motor.c: 54: }
+"54
 [e :UE 775 ]
 }
-"55
+"56
 [v _oscillateMotor `(v ~T0 @X0 1 ef2`i`i ]
 {
-[; ;Motor.c: 55: void oscillateMotor (int rate, int step) {
+[; ;Motor.c: 56: void oscillateMotor (int rate, int step) {
 [e :U _oscillateMotor ]
 [v _rate `i ~T0 @X0 1 r1 ]
 [v _step `i ~T0 @X0 1 r2 ]
 [f ]
-"56
+"57
 [v _j `i ~T0 @X0 1 a ]
-[; ;Motor.c: 56: int j = 0;
+[; ;Motor.c: 57: int j = 0;
 [e = _j -> 0 `i ]
-[; ;Motor.c: 58: for (; j < step ; j ++) {
-"58
+[; ;Motor.c: 59: for (; j < step ; j ++) {
+"59
 {
 [e $U 786  ]
 [e :U 783 ]
 {
-[; ;Motor.c: 59: PORTD = 0b00000011;
-"59
-[e = _PORTD -> -> 3 `i `uc ]
-[; ;Motor.c: 60: delay_ms(rate);
+[; ;Motor.c: 60: PORTD = 0b00000011;
 "60
-[e ( _delay_ms (1 _rate ]
-[; ;Motor.c: 61: PORTD = 0b00000110;
-"61
-[e = _PORTD -> -> 6 `i `uc ]
-[; ;Motor.c: 62: delay_ms(rate);
-"62
-[e ( _delay_ms (1 _rate ]
-[; ;Motor.c: 63: PORTD = 0b00001100;
-"63
-[e = _PORTD -> -> 12 `i `uc ]
-[; ;Motor.c: 64: delay_ms(rate);
-"64
-[e ( _delay_ms (1 _rate ]
-[; ;Motor.c: 65: PORTD = 0b00001001;
-"65
-[e = _PORTD -> -> 9 `i `uc ]
-[; ;Motor.c: 66: delay_ms(rate);
-"66
-[e ( _delay_ms (1 _rate ]
-[; ;Motor.c: 67: PORTD = 0b00000011;
-"67
 [e = _PORTD -> -> 3 `i `uc ]
-[; ;Motor.c: 68: delay_ms(rate);
-"68
+[; ;Motor.c: 61: delay_ms(rate);
+"61
 [e ( _delay_ms (1 _rate ]
+[; ;Motor.c: 62: PORTD = 0b00000110;
+"62
+[e = _PORTD -> -> 6 `i `uc ]
+[; ;Motor.c: 63: delay_ms(rate);
+"63
+[e ( _delay_ms (1 _rate ]
+[; ;Motor.c: 64: PORTD = 0b00001100;
+"64
+[e = _PORTD -> -> 12 `i `uc ]
+[; ;Motor.c: 65: delay_ms(rate);
+"65
+[e ( _delay_ms (1 _rate ]
+[; ;Motor.c: 66: PORTD = 0b00001001;
+"66
+[e = _PORTD -> -> 9 `i `uc ]
+[; ;Motor.c: 67: delay_ms(rate);
+"67
+[e ( _delay_ms (1 _rate ]
+[; ;Motor.c: 68: PORTD = 0b00000011;
+"68
+[e = _PORTD -> -> 3 `i `uc ]
+[; ;Motor.c: 69: delay_ms(rate);
 "69
+[e ( _delay_ms (1 _rate ]
+"70
 }
-"58
+"59
 [e ++ _j -> 1 `i ]
 [e :U 786 ]
 [e $ < _j _step 783  ]
 [e :U 784 ]
-"69
+"70
 }
-[; ;Motor.c: 69: }
-[; ;Motor.c: 72: for (j = 0 ; j < step ; j++) {
-"72
+[; ;Motor.c: 70: }
+[; ;Motor.c: 73: for (j = 0 ; j < step ; j++) {
+"73
 {
 [e = _j -> 0 `i ]
 [e $U 790  ]
 [e :U 787 ]
 {
-[; ;Motor.c: 73: PORTD = 0b00001001;
-"73
-[e = _PORTD -> -> 9 `i `uc ]
-[; ;Motor.c: 74: delay_ms(rate);
+[; ;Motor.c: 74: PORTD = 0b00001001;
 "74
-[e ( _delay_ms (1 _rate ]
-[; ;Motor.c: 75: PORTD = 0b00001100;
-"75
-[e = _PORTD -> -> 12 `i `uc ]
-[; ;Motor.c: 76: delay_ms(rate);
-"76
-[e ( _delay_ms (1 _rate ]
-[; ;Motor.c: 77: PORTD = 0b00000110;
-"77
-[e = _PORTD -> -> 6 `i `uc ]
-[; ;Motor.c: 78: delay_ms(rate);
-"78
-[e ( _delay_ms (1 _rate ]
-[; ;Motor.c: 79: PORTD = 0b00000011;
-"79
-[e = _PORTD -> -> 3 `i `uc ]
-[; ;Motor.c: 80: delay_ms(rate);
-"80
-[e ( _delay_ms (1 _rate ]
-[; ;Motor.c: 81: PORTD = 0b00001001;
-"81
 [e = _PORTD -> -> 9 `i `uc ]
-[; ;Motor.c: 82: delay_ms(rate);
-"82
+[; ;Motor.c: 75: delay_ms(rate);
+"75
 [e ( _delay_ms (1 _rate ]
+[; ;Motor.c: 76: PORTD = 0b00001100;
+"76
+[e = _PORTD -> -> 12 `i `uc ]
+[; ;Motor.c: 77: delay_ms(rate);
+"77
+[e ( _delay_ms (1 _rate ]
+[; ;Motor.c: 78: PORTD = 0b00000110;
+"78
+[e = _PORTD -> -> 6 `i `uc ]
+[; ;Motor.c: 79: delay_ms(rate);
+"79
+[e ( _delay_ms (1 _rate ]
+[; ;Motor.c: 80: PORTD = 0b00000011;
+"80
+[e = _PORTD -> -> 3 `i `uc ]
+[; ;Motor.c: 81: delay_ms(rate);
+"81
+[e ( _delay_ms (1 _rate ]
+[; ;Motor.c: 82: PORTD = 0b00001001;
+"82
+[e = _PORTD -> -> 9 `i `uc ]
+[; ;Motor.c: 83: delay_ms(rate);
 "83
+[e ( _delay_ms (1 _rate ]
+"84
 }
-"72
+"73
 [e ++ _j -> 1 `i ]
 [e :U 790 ]
 [e $ < _j _step 787  ]
 [e :U 788 ]
-"83
-}
-[; ;Motor.c: 83: }
-[; ;Motor.c: 84: }
 "84
+}
+[; ;Motor.c: 84: }
+[; ;Motor.c: 85: }
+"85
 [e :UE 782 ]
 }
-"86
+"87
 [v _rinse `(v ~T0 @X0 1 ef1`i ]
 {
-[; ;Motor.c: 86: void rinse (int cycle) {
+[; ;Motor.c: 87: void rinse (int cycle) {
 [e :U _rinse ]
 [v _cycle `i ~T0 @X0 1 r1 ]
 [f ]
-[; ;Motor.c: 87: if (cycle == 0) cycle = 10;
-"87
-[e $ ! == _cycle -> 0 `i 792  ]
-[e = _cycle -> 10 `i ]
-[e :U 792 ]
-[; ;Motor.c: 88: for (int i = 0; i < cycle; i++) {
-"88
+[; ;Motor.c: 89: for (int i = 0; i < cycle; i++) {
+"89
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $U 796  ]
-[e :U 793 ]
+[e $U 795  ]
+[e :U 792 ]
 {
-[; ;Motor.c: 89: oscillateMotor(10, 100);
-"89
-[e ( _oscillateMotor (2 , -> 10 `i -> 100 `i ]
+[; ;Motor.c: 90: oscillateMotor(5, 100);
 "90
-}
-"88
-[e ++ _i -> 1 `i ]
-[e :U 796 ]
-[e $ < _i _cycle 793  ]
-[e :U 794 ]
-"90
-}
-[; ;Motor.c: 90: }
-[; ;Motor.c: 91: }
+[e ( _oscillateMotor (2 , -> 5 `i -> 100 `i ]
 "91
+}
+"89
+[e ++ _i -> 1 `i ]
+[e :U 795 ]
+[e $ < _i _cycle 792  ]
+[e :U 793 ]
+"91
+}
+[; ;Motor.c: 91: }
+[; ;Motor.c: 92: }
+"92
 [e :UE 791 ]
 }
-"93
+"94
 [v _wash `(v ~T0 @X0 1 ef1`i ]
 {
-[; ;Motor.c: 93: void wash (int cycle) {
+[; ;Motor.c: 94: void wash (int cycle) {
 [e :U _wash ]
 [v _cycle `i ~T0 @X0 1 r1 ]
 [f ]
-[; ;Motor.c: 94: if (cycle == 0) cycle = 10;
-"94
-[e $ ! == _cycle -> 0 `i 798  ]
-[e = _cycle -> 10 `i ]
-[e :U 798 ]
-[; ;Motor.c: 95: for (int i = 0; i < cycle; i++) {
-"95
+[; ;Motor.c: 96: for (int i = 0; i < cycle; i++) {
+"96
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $U 802  ]
-[e :U 799 ]
+[e $U 800  ]
+[e :U 797 ]
 {
-[; ;Motor.c: 96: spinMotor(10, 0);
-"96
-[e ( _spinMotor (2 , -> 10 `i -> 0 `i ]
+[; ;Motor.c: 97: spinMotor(5, 0);
 "97
-}
-"95
-[e ++ _i -> 1 `i ]
-[e :U 802 ]
-[e $ < _i _cycle 799  ]
-[e :U 800 ]
-"97
-}
-[; ;Motor.c: 97: }
-[; ;Motor.c: 98: }
+[e ( _spinMotor (2 , -> 5 `i -> 0 `i ]
 "98
-[e :UE 797 ]
 }
-"100
+"96
+[e ++ _i -> 1 `i ]
+[e :U 800 ]
+[e $ < _i _cycle 797  ]
+[e :U 798 ]
+"98
+}
+[; ;Motor.c: 98: }
+[; ;Motor.c: 99: }
+"99
+[e :UE 796 ]
+}
+"101
 [v _dry `(v ~T0 @X0 1 ef1`i ]
 {
-[; ;Motor.c: 100: void dry (int cycle) {
+[; ;Motor.c: 101: void dry (int cycle) {
 [e :U _dry ]
 [v _cycle `i ~T0 @X0 1 r1 ]
 [f ]
-[; ;Motor.c: 101: if (cycle == 0) cycle = 10;
-"101
-[e $ ! == _cycle -> 0 `i 804  ]
-[e = _cycle -> 10 `i ]
-[e :U 804 ]
-[; ;Motor.c: 102: for (int i = 0; i < cycle; i++) {
-"102
+[; ;Motor.c: 103: for (int i = 0; i < cycle; i++) {
+"103
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $U 808  ]
-[e :U 805 ]
+[e $U 805  ]
+[e :U 802 ]
 {
-[; ;Motor.c: 103: spinMotor(7, 1);
-"103
-[e ( _spinMotor (2 , -> 7 `i -> 1 `i ]
+[; ;Motor.c: 104: spinMotor(5, 1);
 "104
-}
-"102
-[e ++ _i -> 1 `i ]
-[e :U 808 ]
-[e $ < _i _cycle 805  ]
-[e :U 806 ]
-"104
-}
-[; ;Motor.c: 104: }
-[; ;Motor.c: 105: }
+[e ( _spinMotor (2 , -> 5 `i -> 1 `i ]
 "105
-[e :UE 803 ]
 }
-"107
+"103
+[e ++ _i -> 1 `i ]
+[e :U 805 ]
+[e $ < _i _cycle 802  ]
+[e :U 803 ]
+"105
+}
+[; ;Motor.c: 105: }
+[; ;Motor.c: 106: }
+"106
+[e :UE 801 ]
+}
+"108
 [v _normalWashMode `(v ~T0 @X0 1 ef ]
 {
-[; ;Motor.c: 107: void normalWashMode() {
+[; ;Motor.c: 108: void normalWashMode() {
 [e :U _normalWashMode ]
 [f ]
-"108
-[v _cycle `i ~T0 @X0 1 a ]
-[; ;Motor.c: 108: int cycle = 20;
-[e = _cycle -> 20 `i ]
-[; ;Motor.c: 109: rinse(cycle);
 "109
-[e ( _rinse (1 _cycle ]
-[; ;Motor.c: 110: wash(cycle);
+[v _cycle `i ~T0 @X0 1 a ]
+[; ;Motor.c: 109: int cycle = 5;
+[e = _cycle -> 5 `i ]
+[; ;Motor.c: 110: rinse(cycle);
 "110
-[e ( _wash (1 _cycle ]
-[; ;Motor.c: 111: dry(cycle);
+[e ( _rinse (1 _cycle ]
+[; ;Motor.c: 111: wash(cycle);
 "111
-[e ( _dry (1 _cycle ]
-[; ;Motor.c: 112: }
+[e ( _wash (1 _cycle ]
+[; ;Motor.c: 112: dry(cycle);
 "112
-[e :UE 809 ]
+[e ( _dry (1 _cycle ]
+[; ;Motor.c: 113: }
+"113
+[e :UE 806 ]
 }
-"114
+"115
 [v _quickWashMode `(v ~T0 @X0 1 ef ]
 {
-[; ;Motor.c: 114: void quickWashMode () {
+[; ;Motor.c: 115: void quickWashMode () {
 [e :U _quickWashMode ]
 [f ]
-"115
-[v _cycle `i ~T0 @X0 1 a ]
-[; ;Motor.c: 115: int cycle = 10;
-[e = _cycle -> 10 `i ]
-[; ;Motor.c: 116: rinse(cycle);
 "116
-[e ( _rinse (1 _cycle ]
-[; ;Motor.c: 117: wash(cycle);
+[v _cycle `i ~T0 @X0 1 a ]
+[; ;Motor.c: 116: int cycle = 10;
+[e = _cycle -> 10 `i ]
+[; ;Motor.c: 117: rinse(cycle);
 "117
-[e ( _wash (1 _cycle ]
-[; ;Motor.c: 118: turboDry(cycle);
+[e ( _rinse (1 _cycle ]
+[; ;Motor.c: 118: wash(cycle);
 "118
+[e ( _wash (1 _cycle ]
+[; ;Motor.c: 119: turboDry(cycle);
+"119
 [e ( _turboDry (1 _cycle ]
-[; ;Motor.c: 120: }
-"120
-[e :UE 810 ]
+[; ;Motor.c: 121: }
+"121
+[e :UE 807 ]
 }
-"122
+"123
 [v _turboDry `(v ~T0 @X0 1 ef1`i ]
 {
-[; ;Motor.c: 122: void turboDry(int cycle) {
+[; ;Motor.c: 123: void turboDry(int cycle) {
 [e :U _turboDry ]
 [v _cycle `i ~T0 @X0 1 r1 ]
 [f ]
-[; ;Motor.c: 123: if (cycle == 0) cycle = 10;
-"123
-[e $ ! == _cycle -> 0 `i 812  ]
-[e = _cycle -> 10 `i ]
-[e :U 812 ]
-[; ;Motor.c: 124: for (int i = 0; i < cycle; i++) {
-"124
+[; ;Motor.c: 125: for (int i = 0; i < cycle; i++) {
+"125
 {
 [v _i `i ~T0 @X0 1 a ]
 [e = _i -> 0 `i ]
-[e $U 816  ]
-[e :U 813 ]
+[e $U 812  ]
+[e :U 809 ]
 {
-[; ;Motor.c: 125: spinMotor(2, 1);
-"125
+[; ;Motor.c: 126: spinMotor(2, 1);
+"126
 [e ( _spinMotor (2 , -> 2 `i -> 1 `i ]
-"126
-}
-"124
-[e ++ _i -> 1 `i ]
-[e :U 816 ]
-[e $ < _i _cycle 813  ]
-[e :U 814 ]
-"126
-}
-[; ;Motor.c: 126: }
-[; ;Motor.c: 127: }
 "127
-[e :UE 811 ]
+}
+"125
+[e ++ _i -> 1 `i ]
+[e :U 812 ]
+[e $ < _i _cycle 809  ]
+[e :U 810 ]
+"127
+}
+[; ;Motor.c: 127: }
+[; ;Motor.c: 128: }
+"128
+[e :UE 808 ]
 }

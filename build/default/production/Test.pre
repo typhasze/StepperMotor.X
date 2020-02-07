@@ -1,17 +1,17 @@
 
 # 1 "Test.c"
 
-# 26 "D:\Personal Items\XC8 C\include\htc.h"
+# 26 "C:\Program Files (x86)\Microchip\xc8\v1.37\include\htc.h"
 extern const char __xc8_OPTIM_SPEED;
 
 extern double __fpnormalize(double);
 
 
-# 13 "D:\Personal Items\XC8 C\include\xc8debug.h"
+# 13 "C:\Program Files (x86)\Microchip\xc8\v1.37\include\xc8debug.h"
 #pragma intrinsic(__builtin_software_breakpoint)
 extern void __builtin_software_breakpoint(void);
 
-# 49 "D:\Personal Items\XC8 C\include\pic18f97j60.h"
+# 49 "C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic18f97j60.h"
 extern volatile unsigned char MAADR5 @ 0xE80;
 
 asm("MAADR5 equ 0E80h");
@@ -8080,7 +8080,7 @@ extern volatile __bit nWRITE2 @ (((unsigned) &SSP2STAT)*8) + 2;
 
 extern volatile __bit nWRL @ (((unsigned) &PORTJ)*8) + 2;
 
-# 18 "D:\Personal Items\XC8 C\include\pic18.h"
+# 18 "C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic18.h"
 __attribute__((__unsupported__("The " "flash_write" " routine is no longer supported. Please use the MPLAB X MCC."))) void flash_write(const unsigned char *, unsigned int, __far unsigned char *);
 __attribute__((__unsupported__("The " "EraseFlash" " routine is no longer supported. Please use the MPLAB X MCC."))) void EraseFlash(unsigned long startaddr, unsigned long endaddr);
 
@@ -8127,16 +8127,18 @@ void startMotor();
 
 
 
+
 void stopMotor();
+
 
 
 
 void spinMotor(int rate, int direction);
 
-# 31
+# 33
 void oscillateMotor(int rate, int step);
 
-# 37
+# 39
 void rinse (int cycle);
 
 
@@ -8162,10 +8164,10 @@ void quickWashMode();
 
 void turboDry(int cycle);
 
-# 4 "D:\Personal Items\XC8 C\include\__size_t.h"
+# 4 "C:\Program Files (x86)\Microchip\xc8\v1.37\include\__size_t.h"
 typedef unsigned size_t;
 
-# 7 "D:\Personal Items\XC8 C\include\stdarg.h"
+# 7 "C:\Program Files (x86)\Microchip\xc8\v1.37\include\stdarg.h"
 typedef void * va_list[1];
 
 #pragma intrinsic(__va_start)
@@ -8174,17 +8176,17 @@ extern void * __va_start(void);
 #pragma intrinsic(__va_arg)
 extern void * __va_arg(void *, ...);
 
-# 43 "D:\Personal Items\XC8 C\include\stdio.h"
+# 43 "C:\Program Files (x86)\Microchip\xc8\v1.37\include\stdio.h"
 struct __prbuf
 {
 char * ptr;
 void (* func)(char);
 };
 
-# 29 "D:\Personal Items\XC8 C\include\errno.h"
+# 29 "C:\Program Files (x86)\Microchip\xc8\v1.37\include\errno.h"
 extern int errno;
 
-# 12 "D:\Personal Items\XC8 C\include\conio.h"
+# 12 "C:\Program Files (x86)\Microchip\xc8\v1.37\include\conio.h"
 extern void init_uart(void);
 
 extern char getch(void);
@@ -8198,7 +8200,7 @@ extern __bit kbhit(void);
 extern char * cgets(char *);
 extern void cputs(const char *);
 
-# 88 "D:\Personal Items\XC8 C\include\stdio.h"
+# 88 "C:\Program Files (x86)\Microchip\xc8\v1.37\include\stdio.h"
 extern int cprintf(char *, ...);
 #pragma printf_check(cprintf)
 
@@ -8225,7 +8227,7 @@ extern int vsscanf(const char *, const char *, va_list) __attribute__((unsupport
 extern int sprintf(char *, const char *, ...);
 extern int printf(const char *, ...);
 
-# 14 "D:\Personal Items\XC8 C\include\string.h"
+# 14 "C:\Program Files (x86)\Microchip\xc8\v1.37\include\string.h"
 extern void * memcpy(void *, const void *, size_t);
 extern void * memmove(void *, const void *, size_t);
 extern void * memset(void *, int, size_t);
@@ -8266,15 +8268,10 @@ extern char * strrichr(const char *, int);
 void main(void) {
 startMotor();
 while (1) {
-spinMotor(5, 0);
-rinse(100);
-turboDry(100);
-oscillateMotor(50, 100);
-rinse(5);
-wash(5);
-dry(10);
+
+# 21
 normalWashMode();
-quickWashMode();
+
 stopMotor();
 }
 }

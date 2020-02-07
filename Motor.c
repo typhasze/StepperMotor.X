@@ -20,6 +20,7 @@ void startMotor() {
 
 void stopMotor() {
     PORTD = 0x00;       // Clearing bits in Port D;
+    TRISD = 0xFF;
 }
 
 void spinMotor(int rate, int direction) {
@@ -84,28 +85,28 @@ void oscillateMotor (int rate, int step) {
 }
 
 void rinse (int cycle) {
-    if (cycle == 0) cycle = 10;
+    
     for (int i = 0; i < cycle; i++) {
-        oscillateMotor(10, 100);
+        oscillateMotor(5, 100);
     }
 }
 
 void wash (int cycle) {
-    if (cycle == 0) cycle = 10;
+   
     for (int i = 0; i < cycle; i++) {
-        spinMotor(10, 0); 
+        spinMotor(5, 0); 
     }
 }
 
 void dry (int cycle) {
-    if (cycle == 0) cycle = 10;
+    
     for (int i = 0; i < cycle; i++) {
-        spinMotor(7, 1);
+        spinMotor(5, 1);
     }
 }
 
 void normalWashMode() {
-    int cycle = 20;   
+    int cycle = 5;   
     rinse(cycle);    
     wash(cycle);   
     dry(cycle);
@@ -120,7 +121,7 @@ void quickWashMode () {
 }
 
 void turboDry(int cycle) {
-    if (cycle == 0) cycle = 10;
+    
      for (int i = 0; i < cycle; i++) {
         spinMotor(2, 1);
     }

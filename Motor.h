@@ -14,10 +14,12 @@ extern "C" {
 
     void startMotor();
     // Initializes the stepper motor connected to PORTD to Output
+    // Must be called after calling stopMotor()
     
     
     void stopMotor();
     // Clears any bit stored in the Stepper Motor to stop the motor
+    // Must be called to stop the motor()
     
     
     void spinMotor(int rate, int direction);

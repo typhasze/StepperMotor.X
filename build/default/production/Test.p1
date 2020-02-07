@@ -2,29 +2,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [p mainexit ]
 "15 Motor.h
 [v _startMotor `(v ~T0 @X0 0 ef ]
-"23
-[v _spinMotor `(v ~T0 @X0 0 ef2`i`i ]
-"37
-[v _rinse `(v ~T0 @X0 0 ef1`i ]
-"60
-[v _turboDry `(v ~T0 @X0 0 ef1`i ]
-"31
-[v _oscillateMotor `(v ~T0 @X0 0 ef2`i`i ]
-"42
-[v _wash `(v ~T0 @X0 0 ef1`i ]
-"46
-[v _dry `(v ~T0 @X0 0 ef1`i ]
-"51
+"53
 [v _normalWashMode `(v ~T0 @X0 0 ef ]
-"55
-[v _quickWashMode `(v ~T0 @X0 0 ef ]
-"19
+"20
 [v _stopMotor `(v ~T0 @X0 0 ef ]
 [; ;htc.h: 26: extern const char __xc8_OPTIM_SPEED;
 [; ;htc.h: 28: extern double __fpnormalize(double);
 [; ;xc8debug.h: 14: extern void __builtin_software_breakpoint(void);
 [; ;pic18f97j60.h: 49: extern volatile unsigned char MAADR5 @ 0xE80;
-"51 D:\Personal Items\XC8 C\include\pic18f97j60.h
+"51 C:\Program Files (x86)\Microchip\xc8\v1.37\include\pic18f97j60.h
 [; ;pic18f97j60.h: 51: asm("MAADR5 equ 0E80h");
 [; <" MAADR5 equ 0E80h ;# ">
 [; ;pic18f97j60.h: 55: extern volatile unsigned char MAADR6 @ 0xE81;
@@ -6300,15 +6286,15 @@ Version 3.2 HI-TECH Software Intermediate Code
 [; ;amt.h: 24: void clr_screen(void);
 [; ;amt.h: 25: void cursor_home(void);
 [; ;Motor.h: 15: void startMotor();
-[; ;Motor.h: 19: void stopMotor();
-[; ;Motor.h: 23: void spinMotor(int rate, int direction);
-[; ;Motor.h: 31: void oscillateMotor(int rate, int step);
-[; ;Motor.h: 37: void rinse (int cycle);
-[; ;Motor.h: 42: void wash (int cycle);
-[; ;Motor.h: 46: void dry (int cycle);
-[; ;Motor.h: 51: void normalWashMode ();
-[; ;Motor.h: 55: void quickWashMode();
-[; ;Motor.h: 60: void turboDry(int cycle);
+[; ;Motor.h: 20: void stopMotor();
+[; ;Motor.h: 25: void spinMotor(int rate, int direction);
+[; ;Motor.h: 33: void oscillateMotor(int rate, int step);
+[; ;Motor.h: 39: void rinse (int cycle);
+[; ;Motor.h: 44: void wash (int cycle);
+[; ;Motor.h: 48: void dry (int cycle);
+[; ;Motor.h: 53: void normalWashMode ();
+[; ;Motor.h: 57: void quickWashMode();
+[; ;Motor.h: 62: void turboDry(int cycle);
 [; ;__size_t.h: 4: typedef unsigned size_t;
 [; ;stdarg.h: 7: typedef void * va_list[1];
 [; ;stdarg.h: 10: extern void * __va_start(void);
@@ -6384,44 +6370,20 @@ Version 3.2 HI-TECH Software Intermediate Code
 "14
 [e :U 775 ]
 {
-[; ;Test.c: 15: spinMotor(5, 0);
-"15
-[e ( _spinMotor (2 , -> 5 `i -> 0 `i ]
-[; ;Test.c: 16: rinse(100);
-"16
-[e ( _rinse (1 -> 100 `i ]
-[; ;Test.c: 17: turboDry(100);
-"17
-[e ( _turboDry (1 -> 100 `i ]
-[; ;Test.c: 18: oscillateMotor(50, 100);
-"18
-[e ( _oscillateMotor (2 , -> 50 `i -> 100 `i ]
-[; ;Test.c: 19: rinse(5);
-"19
-[e ( _rinse (1 -> 5 `i ]
-[; ;Test.c: 20: wash(5);
-"20
-[e ( _wash (1 -> 5 `i ]
-[; ;Test.c: 21: dry(10);
+[; ;Test.c: 21: normalWashMode();
 "21
-[e ( _dry (1 -> 10 `i ]
-[; ;Test.c: 22: normalWashMode();
-"22
 [e ( _normalWashMode ..  ]
-[; ;Test.c: 23: quickWashMode();
+[; ;Test.c: 23: stopMotor();
 "23
-[e ( _quickWashMode ..  ]
-[; ;Test.c: 24: stopMotor();
-"24
 [e ( _stopMotor ..  ]
-"25
+"24
 }
 [e :U 774 ]
 "14
 [e $U 775  ]
 [e :U 776 ]
+[; ;Test.c: 24: }
 [; ;Test.c: 25: }
-[; ;Test.c: 26: }
-"26
+"25
 [e :UE 773 ]
 }
